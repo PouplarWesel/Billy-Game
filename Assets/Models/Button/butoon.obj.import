@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://lmd6gef5l1n3"
+path="res://.godot/imported/butoon.obj-e0da8bbda91de180e6d9ba3e1e221680.mesh"
+
+[deps]
+
+files=["res://.godot/imported/butoon.obj-e0da8bbda91de180e6d9ba3e1e221680.mesh"]
+
+source_file="res://Assets/Models/Button/butoon.obj"
+dest_files=["res://.godot/imported/butoon.obj-e0da8bbda91de180e6d9ba3e1e221680.mesh", "res://.godot/imported/butoon.obj-e0da8bbda91de180e6d9ba3e1e221680.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

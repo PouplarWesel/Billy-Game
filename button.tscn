@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://cstr5djd3s3p6"]
+
+[ext_resource type="ArrayMesh" uid="uid://vb0dwnnhmcsm" path="res://Assets/Models/Button/top.obj" id="1_fubje"]
+[ext_resource type="ArrayMesh" uid="uid://lmd6gef5l1n3" path="res://Assets/Models/Button/butoon.obj" id="2_pjn4k"]
+
+[sub_resource type="GDScript" id="GDScript_hgeya"]
+script/source = "extends Node3D
+
+var POST
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	POST = $Button.position
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _on_area_3d_body_entered(body):
+	print(\"enter\")
+	if (body == $\"../Toad\"):
+		$Button.position.y-=.01
+
+
+func _on_area_3d_body_exited(body):
+	print(\"exit\")
+	$Button.position = POST
+"
+
+[sub_resource type="Skin" id="Skin_ao8bt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6owqo"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_x6o5n"]
+data = PackedVector3Array(0.15, 0.15, 0.15, -0.15, 0.15, -0.15, 0.15, 0.15, -0.15, -0.15, 0.15, -0.15, 0.15, 0.15, 0.15, -0.15, 0.15, 0.15, -0.2, 0.1, 0.2, 0.15, 0.15, 0.15, 0.2, 0.1, 0.2, 0.15, 0.15, 0.15, -0.2, 0.1, 0.2, -0.15, 0.15, 0.15, -0.15, 0.15, 0.15, -0.2, 0.1, -0.2, -0.15, 0.15, -0.15, -0.2, 0.1, -0.2, -0.15, 0.15, 0.15, -0.2, 0.1, 0.2, 0.2, 0.1, 0.2, 0.15, 0.15, -0.15, 0.2, 0.1, -0.2, 0.15, 0.15, -0.15, 0.2, 0.1, 0.2, 0.15, 0.15, 0.15, 0.15, 0.15, -0.15, -0.2, 0.1, -0.2, 0.2, 0.1, -0.2, -0.2, 0.1, -0.2, 0.15, 0.15, -0.15, -0.15, 0.15, -0.15, -0.2, 0.1, -0.2, -0.2, 0.1, 0.2, 0.2, 0.1, -0.2, 0.2, 0.1, -0.2, -0.2, 0.1, 0.2, 0.2, 0.1, 0.2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_h1faw"]
+data = PackedVector3Array(-0.3, 0.05, 0.2388, -0.2388, 0, 0.3, -0.3, 0, 0.2388, -0.2388, 0, 0.3, -0.3, 0.05, 0.2388, -0.2388, 0.05, 0.3, 0.2388, 0.05, 0.3, 0.25, 0.1, 0.1888, 0.3, 0.05, 0.2388, 0.25, 0.1, 0.1888, 0.2388, 0.05, 0.3, 0.1888, 0.1, 0.25, -0.25, 0.1, -0.1888, -0.2388, 0.05, -0.3, -0.1888, 0.1, -0.25, -0.2388, 0.05, -0.3, -0.25, 0.1, -0.1888, -0.3, 0.05, -0.2388, 0.3, 0.05, 0.2388, 0.25, 0.1, -0.1888, 0.3, 0.05, -0.2388, 0.25, 0.1, -0.1888, 0.3, 0.05, 0.2388, 0.25, 0.1, 0.1888, 0.3, 0, 0.2388, 0.2388, 0.05, 0.3, 0.3, 0.05, 0.2388, 0.2388, 0.05, 0.3, 0.3, 0, 0.2388, 0.2388, 0, 0.3, 0.3, 0, -0.2388, 0.3, 0.05, 0.2388, 0.3, 0.05, -0.2388, 0.3, 0.05, 0.2388, 0.3, 0, -0.2388, 0.3, 0, 0.2388, 0.2388, 0, -0.3, -0.2388, 0.05, -0.3, -0.2388, 0, -0.3, -0.2388, 0.05, -0.3, 0.2388, 0, -0.3, 0.2388, 0.05, -0.3, -0.2388, 0.05, 0.3, -0.25, 0.1, 0.1888, -0.1888, 0.1, 0.25, -0.25, 0.1, 0.1888, -0.2388, 0.05, 0.3, -0.3, 0.05, 0.2388, -0.25, 0.1, 0.1888, -0.3, 0.05, -0.2388, -0.25, 0.1, -0.1888, -0.3, 0.05, -0.2388, -0.25, 0.1, 0.1888, -0.3, 0.05, 0.2388, 0.1888, 0.1, -0.25, -0.2388, 0.05, -0.3, 0.2388, 0.05, -0.3, -0.2388, 0.05, -0.3, 0.1888, 0.1, -0.25, -0.1888, 0.1, -0.25, -0.3, 0.05, -0.2388, -0.3, 0, 0.2388, -0.3, 0, -0.2388, -0.3, 0, 0.2388, -0.3, 0.05, -0.2388, -0.3, 0.05, 0.2388, 0.3, 0, -0.2388, 0.2388, 0.05, -0.3, 0.2388, 0, -0.3, 0.2388, 0.05, -0.3, 0.3, 0, -0.2388, 0.3, 0.05, -0.2388, -0.2388, 0, 0.3, 0.2388, 0.05, 0.3, 0.2388, 0, 0.3, 0.2388, 0.05, 0.3, -0.2388, 0, 0.3, -0.2388, 0.05, 0.3, 0.25, 0.1, -0.1888, 0.2388, 0.05, -0.3, 0.3, 0.05, -0.2388, 0.2388, 0.05, -0.3, 0.25, 0.1, -0.1888, 0.1888, 0.1, -0.25, -0.2, 0.1, -0.2, 0.2, 0.05, -0.2, 0.2, 0.1, -0.2, -0.2, 0.1, -0.2, -0.2, 0.05, 0.2, -0.2, 0.05, -0.2, -0.2388, 0, -0.3, -0.3, 0.05, -0.2388, -0.3, 0, -0.2388, -0.3, 0.05, -0.2388, -0.2388, 0, -0.3, -0.2388, 0.05, -0.3, 0.3, 0, -0.2388, 0.2388, 0, 0.3, 0.3, 0, 0.2388, 0.2388, 0, 0.3, 0.3, 0, -0.2388, 0.2388, 0, -0.3, 0.2, 0.05, 0.2, -0.2, 0.05, -0.2, -0.2, 0.05, 0.2, -0.2388, 0, -0.3, 0.2388, 0, 0.3, 0.2388, 0, -0.3, -0.2388, 0, 0.3, -0.2388, 0, -0.3, -0.3, 0, 0.2388, -0.3, 0, 0.2388, -0.2388, 0, -0.3, -0.3, 0, -0.2388, -0.2388, 0.05, 0.3, 0.1888, 0.1, 0.25, 0.2388, 0.05, 0.3, 0.1888, 0.1, 0.25, -0.2388, 0.05, 0.3, -0.1888, 0.1, 0.25, 0.2, 0.1, -0.2, 0.25, 0.1, -0.1888, 0.25, 0.1, 0.1888, 0.25, 0.1, -0.1888, 0.2, 0.1, -0.2, 0.1888, 0.1, -0.25, 0.25, 0.1, 0.1888, 0.2, 0.1, 0.2, 0.2, 0.1, -0.2, 0.2, 0.1, 0.2, 0.25, 0.1, 0.1888, 0.1888, 0.1, 0.25, 0.1888, 0.1, -0.25, 0.2, 0.1, -0.2, -0.2, 0.1, -0.2, 0.1888, 0.1, -0.25, -0.2, 0.1, -0.2, -0.1888, 0.1, -0.25, -0.1888, 0.1, -0.25, -0.2, 0.1, -0.2, -0.25, 0.1, -0.1888, 0.2, 0.1, 0.2, 0.1888, 0.1, 0.25, -0.2, 0.1, 0.2, -0.25, 0.1, -0.1888, -0.2, 0.1, -0.2, -0.2, 0.1, 0.2, -0.2, 0.1, 0.2, 0.1888, 0.1, 0.25, -0.1888, 0.1, 0.25, -0.2, 0.1, 0.2, -0.25, 0.1, 0.1888, -0.25, 0.1, -0.1888, -0.2, 0.1, 0.2, -0.1888, 0.1, 0.25, -0.25, 0.1, 0.1888, -0.2, 0.05, 0.2, 0.2, 0.1, 0.2, 0.2, 0.05, 0.2, 0.2, 0.05, -0.2, 0.2, 0.1, 0.2, 0.2, 0.1, -0.2, -0.2, 0.05, -0.2, 0.2, 0.05, -0.2, -0.2, 0.1, -0.2, -0.2, 0.1, 0.2, -0.2, 0.05, 0.2, -0.2, 0.1, -0.2, 0.2, 0.05, -0.2, -0.2, 0.05, -0.2, 0.2, 0.05, 0.2, -0.2388, 0, 0.3, 0.2388, 0, 0.3, -0.2388, 0, -0.3, -0.2, 0.1, 0.2, 0.2, 0.1, 0.2, -0.2, 0.05, 0.2, 0.2, 0.05, 0.2, 0.2, 0.1, 0.2, 0.2, 0.05, -0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5pajh"]
+size = Vector3(0.536621, 0.166016, 0.442829)
+
+[node name="Button" type="Node3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = SubResource("GDScript_hgeya")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0014057, 0)
+
+[node name="Button" type="StaticBody3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -0.0132364, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button"]
+mesh = ExtResource("1_fubje")
+skin = SubResource("Skin_ao8bt")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_6owqo")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Button"]
+shape = SubResource("ConcavePolygonShape3D_x6o5n")
+
+[node name="Base" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Base"]
+mesh = ExtResource("2_pjn4k")
+skin = SubResource("Skin_ao8bt")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Base"]
+shape = SubResource("ConcavePolygonShape3D_h1faw")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0124208, 0.00618273, -0.0329328)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0012207, 0.123047, 0.0136623)
+shape = SubResource("BoxShape3D_5pajh")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

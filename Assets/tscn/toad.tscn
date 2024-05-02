@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://db2e4j6gysje0"]
+
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_yytyx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_i4xni"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_typ8o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qnlcg"]
+size = Vector3(1.09582, 0.0310059, 1.13629)
+
+[node name="Toad" type="CharacterBody3D"]
+script = ExtResource("1_yytyx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_i4xni")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_typ8o")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129835, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00714176, -0.636065, -0.00845337)
+shape = SubResource("BoxShape3D_qnlcg")

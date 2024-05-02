@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ir3mnj6iwtmi"]
+
+[ext_resource type="ArrayMesh" uid="uid://dadyqmapxlxmw" path="res://Assets/Models/OBJ format/blockDirt.obj" id="1_vy8c7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mpn87"]
+
+[node name="BlockDirt" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.04, 0, -1.57036e-07, 0, -1.04, 0, 1.57036e-07, 0, 1.04, 0, -0.522596, 0)
+shape = SubResource("BoxShape3D_mpn87")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00149, 0)
+mesh = ExtResource("1_vy8c7")
