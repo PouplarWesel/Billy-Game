@@ -27,8 +27,10 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		
 	if ($Area3D.overlaps_body($"../Button")):
 			velocity.y=1.5
+			
+			
+	print($Area3D.has_overlapping_areas)
 
 	move_and_slide()
