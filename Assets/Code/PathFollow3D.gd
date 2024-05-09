@@ -7,6 +7,9 @@ var zoom_speed = 2
 var target_progress
 var mouse_moving = false
 
+
+
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	target_progress = progress
