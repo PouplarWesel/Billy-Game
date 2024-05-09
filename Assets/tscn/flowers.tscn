@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8hq4emp6js6j"]
+
+[ext_resource type="ArrayMesh" uid="uid://ddpacfdpfm2qh" path="res://Assets/Models/OBJ format/flowersLow.obj" id="1_pxxvb"]
+[ext_resource type="Script" path="res://Assets/tscn/flowers.gd" id="2_efgxl"]
+
+[node name="Flowers" type="MeshInstance3D"]
+mesh = ExtResource("1_pxxvb")
+script = ExtResource("2_efgxl")

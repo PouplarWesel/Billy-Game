@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://6t2ywm1sqt4q"]
+
+[ext_resource type="ArrayMesh" uid="uid://xrjltfigyme7" path="res://Assets/Models/OBJ format/ladder.obj" id="1_op7pi"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l4q6w"]
+points = PackedVector3Array(0.19885, 1.00774, 0.0472923, -0.197898, -0.00773764, -0.0479272, -0.197898, -0.00773764, 0.0472923, -0.197898, 1.00774, -0.0479272, 0.19885, -0.00773764, -0.0479272, 0.19885, -0.00773764, 0.0472923, -0.197898, 1.00774, 0.0472923, 0.19885, 1.00774, -0.0479272)
+
+[node name="Ladder" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_op7pi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_l4q6w")

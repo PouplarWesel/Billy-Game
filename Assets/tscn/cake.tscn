@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdlqyv2bvdhec"]
+
+[ext_resource type="Script" path="res://Assets/tscn/Node3D.gd" id="1_bb3xt"]
+[ext_resource type="Script" path="res://Assets/tscn/cake.gd" id="1_d4avo"]
+[ext_resource type="ArrayMesh" uid="uid://do1ndu4l738oc" path="res://Assets/Models/OBJ format/cakeBirthday.obj" id="1_thh0q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qgoru"]
+size = Vector3(1, 1.49609, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_e27as"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yh00w"]
+render_priority = 10
+transparency = 4
+blend_mode = 3
+cull_mode = 1
+depth_draw_mode = 2
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(0.513726, 0.462745, 0.368627, 1)
+refraction_enabled = true
+refraction_scale = 1.0
+refraction_texture_channel = 1
+detail_enabled = true
+detail_blend_mode = 2
+
+[node name="Cake" type="Area3D"]
+script = ExtResource("1_d4avo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.248047, 0)
+shape = SubResource("BoxShape3D_qgoru")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0815376, 0)
+script = ExtResource("1_bb3xt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = ExtResource("1_thh0q")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0815376, 0)
+mesh = SubResource("SphereMesh_e27as")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_yh00w")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
