@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bagp4arcifcqg"]
+
+[ext_resource type="ArrayMesh" uid="uid://dngxsnxp30rwr" path="res://Assets/Models/OBJ format/crate.obj" id="1_dqf7v"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r10qd"]
+points = PackedVector3Array(-0.25, 9.79448e-05, -0.25, 0.249994, 0.499902, 0.25, -0.25, 0.499902, 0.25, 0.249994, 0.499902, -0.25, 0.249994, 9.78964e-05, 0.25, 0.249994, 9.78964e-05, -0.25, -0.25, 9.79448e-05, 0.25, -0.25, 0.499902, -0.25)
+
+[node name="Crate" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_dqf7v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_r10qd")

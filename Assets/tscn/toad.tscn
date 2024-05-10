@@ -38,3 +38,9 @@ transform = Transform3D(2.24757, 0, 0, 0, 2.24757, 7.10543e-15, 0, 0, 2.24757, 0
 
 [node name="RayCast3D_Back" type="RayCast3D" parent="Node3D"]
 transform = Transform3D(-1, 1.85263e-07, 0, -8.74229e-08, -2.11917, 0, 1.69407e-21, 0, 1, 0, 0.851882, -4.64748e-08)
+
+[node name="RayCast3D_Right" type="RayCast3D" parent="Node3D"]
+transform = Transform3D(-3.92877e-05, -2.24757, -1.96489e-07, -2.24757, 3.92876e-05, 7.10543e-15, 3.39639e-12, 1.96489e-07, -2.24757, 2.64936, 0.412302, -0.0424766)
+
+[node name="RayCast3D_Left" type="RayCast3D" parent="Node3D"]
+transform = Transform3D(9.82444e-08, 2.24757, 1.96489e-07, 2.24757, -9.82444e-08, 0, 1.42109e-14, 1.96489e-07, -2.24757, -2.08613, 0.412302, -0.0424771)

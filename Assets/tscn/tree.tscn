@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://8um630yyivoy"]
+[gd_scene load_steps=3 format=3 uid="uid://bh2rd0xdoaijj"]
 
-[ext_resource type="ArrayMesh" uid="uid://d3bjtt215x65a" path="res://Assets/Models/OBJ format/tree.obj" id="1_tv51c"]
+[ext_resource type="ArrayMesh" uid="uid://d3bjtt215x65a" path="res://Assets/Models/OBJ format/tree.obj" id="1_sb6sc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxkuk"]
 size = Vector3(1, 1.94275, 1)
@@ -8,7 +8,7 @@ size = Vector3(1, 1.94275, 1)
 [node name="Tree" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_tv51c")
+mesh = ExtResource("1_sb6sc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
