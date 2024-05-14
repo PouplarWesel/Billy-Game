@@ -172,8 +172,6 @@ func applyGravity(delta):
 		velocity.y -= gravity * delta
 
 func move(isForward):
-	
-	print(checkCollusion())
 	if isForward && checkCollusion():
 		if snapped(get_rotation_degrees().y,1) == 90:
 			position.x -= 1
