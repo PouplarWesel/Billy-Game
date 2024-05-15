@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqtmug65h5r3j"]
+
+[ext_resource type="Script" path="res://Assets/Code/spike.gd" id="1_6or5x"]
+[ext_resource type="ArrayMesh" uid="uid://qfk24fplv665" path="res://Assets/Models/OBJ format/spikes.obj" id="1_iyb3d"]
+[ext_resource type="ArrayMesh" uid="uid://5as0lwtl1pvb" path="res://Assets/Models/OBJ format/spikesHidden.obj" id="2_ed2y6"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5ba2j"]
+points = PackedVector3Array(0.268407, 0.244172, 0.260903, -0.390857, 1.38778e-17, -0.386179, -0.390857, 1.38778e-17, 0.383321, 0.390857, 1.38778e-17, -0.386179, -0.268492, 0.244211, -0.263844, 0.390857, 1.38778e-17, 0.383321, -0.268492, 0.244211, 0.260987, 0.268407, 0.244172, -0.26376, 0.394497, 0.0605026, 0.386905, -0.394178, 0.0605526, -0.389447, -0.394497, 0.0605026, 0.386905, 0.394178, 0.0605526, -0.389447)
+
+[node name="Spike" type="StaticBody3D"]
+script = ExtResource("1_6or5x")
+
+[node name="Spikes" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_iyb3d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_5ba2j")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_ed2y6")

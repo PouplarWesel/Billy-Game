@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://djqeya0nukajm"]
+
+[ext_resource type="Script" path="res://StaticBody3D.gd" id="1_1dmck"]
+[ext_resource type="ArrayMesh" uid="uid://ogrw75bep0rm" path="res://Assets/Models/OBJ format/blockMoving.obj" id="2_5ry3u"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jj5r6"]
+points = PackedVector3Array(-0.400059, 0, -0.5, -0.468383, 0, -0.468383, -0.400059, 0.25, -0.5, 0.399961, 0, -0.5, -0.5, 0, -0.400059, -0.468383, 0.25, -0.468383, 0.399961, 0.25, -0.5, 0.468285, 0, -0.468383, -0.5, 0.25, -0.400059, -0.5, 0, 0.399956, 0.468285, 0.25, -0.468383, 0.5, 0, -0.400059, -0.5, 0.25, 0.399956, -0.468383, 0, 0.46828, 0.5, 0.25, -0.400059, 0.5, 0, 0.399956, -0.468383, 0.25, 0.46828, -0.400059, 0, 0.499995, 0.5, 0.25, 0.399956, 0.468285, 0, 0.46828, -0.400059, 0.25, 0.499995, 0.399961, 0, 0.499995, 0.468285, 0.25, 0.46828, 0.399961, 0.25, 0.499995)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v5acn"]
+
+[node name="BlockFalling" type="StaticBody3D"]
+script = ExtResource("1_1dmck")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_5ry3u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_jj5r6")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_v5acn")

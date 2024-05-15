@@ -18,9 +18,11 @@ var one = 33.5140342712402
 var two = 49.0990219116211
 var three = 2.26603817939758
 var four = 15.7960376739502
+var ladderHeight
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") 
+
 
 func _ready():
 	raycastFront = $Node3D/RayCast3D_Front
@@ -29,8 +31,10 @@ func _ready():
 	laddersPath = %Ladders
 	raycastRight = $Node3D/RayCast3D_Right
 	raycastLeft = $Node3D/RayCast3D_Left
+	ladderHeight = get_parent().ladderHeight
 
 func _physics_process(delta):
+	climb()
 	handleMovement()
 	applyGravity(delta)
 	move_and_slide()
@@ -201,9 +205,12 @@ func move(isForward):
 func climb():
 	if raycastFront.is_colliding():
 		var collider = raycastFront.get_collider()
-		if collider.get_parent() == laddersPath:
+		print(collider.name)
+		
+		
+		if collider.name == "Ladder":
 			move(true)
-			position.y += 1
+			position.y += ladderHeight
 
 func checkCollusion():
 	if raycastFront.is_colliding():
