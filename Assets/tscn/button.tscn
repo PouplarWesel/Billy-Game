@@ -129,16 +129,16 @@ shadow_mesh = SubResource("ArrayMesh_w40v4")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m1dn8"]
 points = PackedVector3Array(0.199993, 0.109524, 0.257091, -0.226916, 0, -0.279365, -0.279365, 0, -0.22697, 0.22697, -1.38778e-17, 0.279365, 0.284831, 0.0612784, -0.231412, -0.257091, 0.109524, 0.199993, -0.199933, 0.109524, -0.257091, -0.226916, 0, 0.279365, 0.22697, -6.93889e-18, -0.279365, 0.199993, 0.109524, -0.257091, 0.279365, 0, 0.22697, 0.257091, 0.109524, 0.199993, -0.23138, 0.0612794, 0.284861, -0.279365, -6.93889e-18, 0.22697, -0.284831, 0.0612784, -0.231412, -0.23138, 0.0612794, -0.284861, 0.279365, 0, -0.22697, 0.231412, 0.0612784, 0.284831, -0.284831, 0.0612784, 0.231412, 0.231412, 0.0612784, -0.284831, 0.284831, 0.0612784, 0.231412, -0.257091, 0.109524, -0.199993, 0.257091, 0.109524, -0.199993, -0.199933, 0.109524, 0.257091)
 
-[sub_resource type="Animation" id="Animation_wps3h"]
-resource_name = "toggle-on"
-length = 0.2
+[sub_resource type="Animation" id="Animation_2vwgg"]
+resource_name = "toggle"
+length = 0.5
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
 tracks/0/path = NodePath("button-square/button")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, 0, -0.000304198, 0, 0.0666667, 1, 0, -0.00493827, 0, 0.133333, 1, 0, -0.0450617, 0, 0.2, 1, 0, -0.05, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, 0, -0.00012642, 0, 0.0666667, 1, 0, -0.00202272, 0, 0.1, 1, 0, -0.01024, 0, 0.133333, 1, 0, -0.0310291, 0, 0.166667, 1, 0, -0.0450617, 0, 0.2, 1, 0, -0.04936, 0, 0.3, 1, 0, -0.04936, 0, 0.333333, 1, 0, -0.0450617, 0, 0.366667, 1, 0, -0.0310291, 0, 0.4, 1, 0, -0.01024, 0, 0.433333, 1, 0, -0.00202272, 0, 0.5, 1, 0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_u8wet"]
 resource_name = "toggle-off"
@@ -151,16 +151,16 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.05, 0, 0.0333333, 1, 0, -0.0496958, 0, 0.0666667, 1, 0, -0.0450617, 0, 0.133333, 1, 0, -0.00493827, 0, 0.2, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_2vwgg"]
-resource_name = "toggle"
-length = 0.5
+[sub_resource type="Animation" id="Animation_wps3h"]
+resource_name = "toggle-on"
+length = 0.2
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
 tracks/0/path = NodePath("button-square/button")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, 0, -0.00012642, 0, 0.0666667, 1, 0, -0.00202272, 0, 0.1, 1, 0, -0.01024, 0, 0.133333, 1, 0, -0.0310291, 0, 0.166667, 1, 0, -0.0450617, 0, 0.2, 1, 0, -0.04936, 0, 0.3, 1, 0, -0.04936, 0, 0.333333, 1, 0, -0.0450617, 0, 0.366667, 1, 0, -0.0310291, 0, 0.4, 1, 0, -0.01024, 0, 0.433333, 1, 0, -0.00202272, 0, 0.5, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, 0, -0.000304198, 0, 0.0666667, 1, 0, -0.00493827, 0, 0.133333, 1, 0, -0.0450617, 0, 0.2, 1, 0, -0.05, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lqfyy"]
 _data = {

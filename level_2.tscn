@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://danil3eovro0e"]
+[gd_scene load_steps=19 format=3 uid="uid://danil3eovro0e"]
 
 [ext_resource type="MeshLibrary" uid="uid://d0jof6kwf751v" path="res://Assets/Mesh Library/new_new_tiles.tres" id="2_0fvtq"]
 [ext_resource type="PackedScene" uid="uid://cqtmug65h5r3j" path="res://Assets/tscn/spike.tscn" id="2_124nb"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://dmchop8sonr3" path="res://Assets/tscn/tree_snow.tscn" id="14_0ekvo"]
 [ext_resource type="PackedScene" uid="uid://cjxp6cdalie3k" path="res://Assets/tscn/invisable_wall.tscn" id="16_75hic"]
 [ext_resource type="PackedScene" uid="uid://bagp4arcifcqg" path="res://Assets/tscn/crate.tscn" id="17_mi15r"]
-[ext_resource type="Shader" path="res://Assets/Shadders/level_2.gdshader" id="18_7v05p"]
 
 [sub_resource type="Curve3D" id="Curve3D_a4e45"]
 _data = {
@@ -25,16 +24,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v4mkc"]
-shader = ExtResource("18_7v05p")
-
-[sub_resource type="Sky" id="Sky_nslom"]
-sky_material = SubResource("ShaderMaterial_v4mkc")
-
-[sub_resource type="Environment" id="Environment_mgpng"]
-background_mode = 2
-sky = SubResource("Sky_nslom")
 
 [node name="Level_2" type="Node3D"]
 
@@ -226,6 +215,3 @@ transform = Transform3D(0.738526, 0, 0.674225, 0, 1, 0, -0.674225, 0, 0.738526, 
 
 [node name="Crate3" parent="." instance=ExtResource("17_mi15r")]
 transform = Transform3D(-0.792598, 0, -0.609744, 0, 1, 0, 0.609744, 0, -0.792598, 0.410529, 8.75188, -1.72633)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_mgpng")
