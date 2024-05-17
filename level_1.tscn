@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bkrutrjewv602"]
+[gd_scene load_steps=19 format=3 uid="uid://bkrutrjewv602"]
 
 [ext_resource type="PackedScene" uid="uid://dantck3j33yki" path="res://Assets/tscn/block.tscn" id="1_531fg"]
 [ext_resource type="PackedScene" uid="uid://db2e4j6gysje0" path="res://Assets/tscn/toad.tscn" id="2_1g7jl"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bt8mtfd2pg2hh" path="res://Assets/tscn/mushroom.tscn" id="13_kfwe5"]
 [ext_resource type="PackedScene" uid="uid://bagp4arcifcqg" path="res://Assets/tscn/crate.tscn" id="14_kgo53"]
 [ext_resource type="PackedScene" uid="uid://cdweh3ibq4duc" path="res://Assets/tscn/pine_tree.tscn" id="15_m8rar"]
+[ext_resource type="Script" path="res://Assets/Code/Level1Toad.gd" id="16_2obqi"]
 [ext_resource type="PackedScene" uid="uid://cumekhgmogtgu" path="res://Assets/tscn/arrow.tscn" id="16_suhds"]
 
 [sub_resource type="Curve3D" id="Curve3D_e7ekc"]
@@ -38,10 +39,6 @@ script = ExtResource("5_k57hc")
 
 [node name="Camera3D" type="Camera3D" parent="Path3D/PathFollows3D"]
 transform = Transform3D(2.98023e-08, -0.338096, 0.725055, 0, 0.725051, 0.338095, -0.800005, 1.49012e-08, -2.98023e-08, 0.0483227, 0, -0.0322838)
-
-[node name="Toad" parent="." instance=ExtResource("2_1g7jl")]
-unique_name_in_owner = true
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.5, 0.525, 1.5)
 
 [node name="Area" type="Node3D" parent="."]
 
@@ -5003,3 +5000,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.380339, 0, -3.52891)
 [node name="Arrow" parent="Area" instance=ExtResource("16_suhds")]
 transform = Transform3D(0.592027, 0, -0.805918, 0, 1, 0, 0.805918, 0, 0.592027, 3.66922, 0, 0.656969)
 skeleton = NodePath("../..")
+
+[node name="Level1Toad" type="Node3D" parent="."]
+script = ExtResource("16_2obqi")
+
+[node name="Toad" parent="Level1Toad" instance=ExtResource("2_1g7jl")]
+unique_name_in_owner = true
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.5, 0.525, 1.5)

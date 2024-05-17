@@ -14,10 +14,10 @@ var countForRotate = 0
 var laddersPath
 var cameraPath
 var coin = 0
-var one = 33.5140342712402
-var two = 49.0990219116211
-var three = 2.26603817939758
-var four = 15.7960376739502
+var one
+var two
+var three
+var four 
 var ladderHeight
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -32,9 +32,12 @@ func _ready():
 	raycastRight = $Node3D/RayCast3D_Right
 	raycastLeft = $Node3D/RayCast3D_Left
 	ladderHeight = get_parent().ladderHeight
+	one = get_parent().one
+	two = get_parent().two
+	three = get_parent().three
+	four = get_parent().four
 
 func _physics_process(delta):
-	climb()
 	handleMovement()
 	applyGravity(delta)
 	move_and_slide()
@@ -199,23 +202,24 @@ func move(isForward):
 	# round to nearest .5
 
 	position.x = round(position.x * 2) / 2
+	position.z = round(position.z * 2) / 2
 
 
 
 func climb():
 	if raycastFront.is_colliding():
 		var collider = raycastFront.get_collider()
-		print(collider.name)
-		
-		
-		if collider.name == "Ladder":
-			move(true)
+				
+		if collider.name.contains("Ladder"):
 			position.y += ladderHeight
+			move(true)
+		elif collider.name.contains("Base"):
+			position.y += .2
 
 func checkCollusion():
 	if raycastFront.is_colliding():
 		var collider = raycastFront.get_collider()
-		if collider.get_parent() == laddersPath:
+		if collider.name.contains("Ladder") || collider.name.contains("Base") || (collider.name.contains("Spike") && !collider.isSpiked): 
 			return true
 		return false
 	return true

@@ -5,7 +5,7 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r10qd"]
 points = PackedVector3Array(-0.25, 9.79448e-05, -0.25, 0.249994, 0.499902, 0.25, -0.25, 0.499902, 0.25, 0.249994, 0.499902, -0.25, 0.249994, 9.78964e-05, 0.25, 0.249994, 9.78964e-05, -0.25, -0.25, 9.79448e-05, 0.25, -0.25, 0.499902, -0.25)
 
-[node name="Crate" type="StaticBody3D"]
+[node name="Crate" type="RigidBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_dqf7v")
