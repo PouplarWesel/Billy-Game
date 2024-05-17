@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bg5odu0i31ohn"
+path="res://.godot/imported/block-snow-corner-low.obj-5286ba382b2f2ba703a0d58c9db37fbf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/block-snow-corner-low.obj-5286ba382b2f2ba703a0d58c9db37fbf.mesh"]
+
+source_file="res://Assets/New Models/OBJ format/block-snow-corner-low.obj"
+dest_files=["res://.godot/imported/block-snow-corner-low.obj-5286ba382b2f2ba703a0d58c9db37fbf.mesh", "res://.godot/imported/block-snow-corner-low.obj-5286ba382b2f2ba703a0d58c9db37fbf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

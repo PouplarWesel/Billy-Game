@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c2iv70tsmacoy"
+path="res://.godot/imported/block-snow-overhang-edge.obj-3d3ca25d6b5afb94d644c473514c2e1a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/block-snow-overhang-edge.obj-3d3ca25d6b5afb94d644c473514c2e1a.mesh"]
+
+source_file="res://Assets/New Models/OBJ format/block-snow-overhang-edge.obj"
+dest_files=["res://.godot/imported/block-snow-overhang-edge.obj-3d3ca25d6b5afb94d644c473514c2e1a.mesh", "res://.godot/imported/block-snow-overhang-edge.obj-3d3ca25d6b5afb94d644c473514c2e1a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

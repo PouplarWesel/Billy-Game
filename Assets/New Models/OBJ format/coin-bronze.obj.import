@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cd4sh6tblvl2v"
+path="res://.godot/imported/coin-bronze.obj-33714bcd6b017317dedfd5f82189d23b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/coin-bronze.obj-33714bcd6b017317dedfd5f82189d23b.mesh"]
+
+source_file="res://Assets/New Models/OBJ format/coin-bronze.obj"
+dest_files=["res://.godot/imported/coin-bronze.obj-33714bcd6b017317dedfd5f82189d23b.mesh", "res://.godot/imported/coin-bronze.obj-33714bcd6b017317dedfd5f82189d23b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

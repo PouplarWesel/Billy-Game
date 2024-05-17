@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxej15eagyt41"]
+
+[ext_resource type="Script" path="res://MovingBlock.gd" id="1_t01jt"]
+[ext_resource type="ArrayMesh" uid="uid://br1w3815fooi5" path="res://Assets/Models/OBJ format/blockMovingBlue.obj" id="2_0nnqn"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5vyf0"]
+points = PackedVector3Array(-0.400059, 0, -0.5, -0.468383, 0, -0.468383, -0.400059, 0.5, -0.5, 0.399961, 0, -0.5, -0.5, 0, -0.400059, -0.468383, 0.5, -0.468383, 0.399961, 0.5, -0.5, 0.468285, 0, -0.468383, -0.5, 0.5, -0.400059, -0.5, 0, 0.399956, 0.468285, 0.5, -0.468383, 0.5, 0, -0.400059, -0.5, 0.5, 0.399956, -0.468383, 0, 0.46828, 0.5, 0.5, -0.400059, 0.5, 0, 0.399956, -0.468383, 0.5, 0.46828, -0.400059, 0, 0.499995, 0.5, 0.5, 0.399956, 0.468285, 0, 0.46828, -0.400059, 0.5, 0.499995, 0.399961, 0, 0.499995, 0.468285, 0.5, 0.46828, 0.399961, 0.5, 0.499995)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tf4p0"]
+size = Vector3(1, 0.601563, 1)
+
+[node name="MovingBlock" type="StaticBody3D"]
+script = ExtResource("1_t01jt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_0nnqn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_5vyf0")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.904092, 0)
+shape = SubResource("BoxShape3D_tf4p0")

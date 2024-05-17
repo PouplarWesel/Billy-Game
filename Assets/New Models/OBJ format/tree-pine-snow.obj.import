@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://i25p54ltl37b"
+path="res://.godot/imported/tree-pine-snow.obj-2f947766402aec29075c6ab69e74b6aa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tree-pine-snow.obj-2f947766402aec29075c6ab69e74b6aa.mesh"]
+
+source_file="res://Assets/New Models/OBJ format/tree-pine-snow.obj"
+dest_files=["res://.godot/imported/tree-pine-snow.obj-2f947766402aec29075c6ab69e74b6aa.mesh", "res://.godot/imported/tree-pine-snow.obj-2f947766402aec29075c6ab69e74b6aa.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

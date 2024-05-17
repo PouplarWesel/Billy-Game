@@ -209,17 +209,16 @@ func move(isForward):
 func climb():
 	if raycastFront.is_colliding():
 		var collider = raycastFront.get_collider()
-				
 		if collider.name.contains("Ladder"):
 			position.y += ladderHeight
 			move(true)
-		elif collider.name.contains("Base"):
+		elif collider.name.contains("Button"):
 			position.y += .2
 
 func checkCollusion():
 	if raycastFront.is_colliding():
 		var collider = raycastFront.get_collider()
-		if collider.name.contains("Ladder") || collider.name.contains("Base") || (collider.name.contains("Spike") && !collider.isSpiked): 
+		if collider.name.contains("Ladder") || collider.name.contains("Button") || (collider.name.contains("Spike") && !collider.isSpiked): 
 			return true
 		return false
 	return true

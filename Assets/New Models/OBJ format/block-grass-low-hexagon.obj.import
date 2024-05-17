@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ctqs83p7yg2vr"
+path="res://.godot/imported/block-grass-low-hexagon.obj-4df06c104763bccfc15b13ba4f934d97.mesh"
+
+[deps]
+
+files=["res://.godot/imported/block-grass-low-hexagon.obj-4df06c104763bccfc15b13ba4f934d97.mesh"]
+
+source_file="res://Assets/New Models/OBJ format/block-grass-low-hexagon.obj"
+dest_files=["res://.godot/imported/block-grass-low-hexagon.obj-4df06c104763bccfc15b13ba4f934d97.mesh", "res://.godot/imported/block-grass-low-hexagon.obj-4df06c104763bccfc15b13ba4f934d97.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

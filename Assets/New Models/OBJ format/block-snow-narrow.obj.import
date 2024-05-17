@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://8rc6juqrqcbs"
+path="res://.godot/imported/block-snow-narrow.obj-50b9f5d39dda032be559a2e6d7fee5ff.mesh"
+
+[deps]
+
+files=["res://.godot/imported/block-snow-narrow.obj-50b9f5d39dda032be559a2e6d7fee5ff.mesh"]
+
+source_file="res://Assets/New Models/OBJ format/block-snow-narrow.obj"
+dest_files=["res://.godot/imported/block-snow-narrow.obj-50b9f5d39dda032be559a2e6d7fee5ff.mesh", "res://.godot/imported/block-snow-narrow.obj-50b9f5d39dda032be559a2e6d7fee5ff.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
