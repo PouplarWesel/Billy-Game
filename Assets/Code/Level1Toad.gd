@@ -1,6 +1,6 @@
 extends Node3D
 
-var ladderHeight = 1
+var ladderHeight = 2
 var one = 33.5140342712402
 var two = 49.0990219116211
 var three = 2.26603817939758

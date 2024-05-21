@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://ceryu8fp1m4k6"]
+
+[ext_resource type="Script" path="res://Assets/Code/LevelSelectionOrbs.gd" id="1_3yk61"]
+[ext_resource type="PackedScene" uid="uid://bhrgfiej020bq" path="res://Assets/tscn/level_1_selection.tscn" id="1_hsgg8"]
+[ext_resource type="PackedScene" uid="uid://c5gcd102qlsa0" path="res://Assets/tscn/level_2_selection.tscn" id="2_ygyvr"]
+[ext_resource type="Script" path="res://Assets/tscn/Camera3D.gd" id="4_m7n4n"]
+[ext_resource type="PackedScene" uid="uid://dyh1ytviifjnv" path="res://Assets/tscn/level_3_selection.tscn" id="5_3wdst"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1bbcd"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_71p5v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqhu6"]
+render_priority = 10
+transparency = 4
+blend_mode = 3
+cull_mode = 1
+depth_draw_mode = 2
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(0.513726, 0.462745, 0.368627, 1)
+refraction_enabled = true
+refraction_scale = 1.0
+refraction_texture_channel = 1
+detail_enabled = true
+detail_blend_mode = 2
+
+[node name="LevelSelect" type="Node3D"]
+
+[node name="Level1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0815376, 0)
+script = ExtResource("1_3yk61")
+
+[node name="Level1Selection" parent="Level1" instance=ExtResource("1_hsgg8")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -0.155655, 0.0975586, 0.0483646)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level1"]
+shape = SubResource("SphereShape3D_1bbcd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Level1"]
+mesh = SubResource("SphereMesh_71p5v")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_aqhu6")
+
+[node name="Level2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0815376, 1.99667)
+script = ExtResource("1_3yk61")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level2"]
+shape = SubResource("SphereShape3D_1bbcd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Level2"]
+mesh = SubResource("SphereMesh_71p5v")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_aqhu6")
+
+[node name="Level2Selection" parent="Level2" instance=ExtResource("2_ygyvr")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, -0.0980423, 0.00770402)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1.01399e-08, 0.526273, -0.850316, -6.27575e-09, 0.850316, 0.526273, 1, 0, 1.19249e-08, -0.87978, 0.621227, 0.0126218)
+script = ExtResource("4_m7n4n")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1, -1.18824e-08, 1.09196e-08, 1.18824e-08, 0.0843039, -0.99644, 1.09196e-08, 0.99644, 0.0843039, 0, 0, 0)
+
+[node name="Level3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0815376, 3.99667)
+script = ExtResource("1_3yk61")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level3"]
+shape = SubResource("SphereShape3D_1bbcd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Level3"]
+mesh = SubResource("SphereMesh_71p5v")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_aqhu6")
+
+[node name="Level3Selection" parent="Level3" instance=ExtResource("5_3wdst")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)

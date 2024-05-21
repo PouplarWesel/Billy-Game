@@ -20,7 +20,7 @@ func _physics_process(delta):
 
 	if (isOverLapping):
 		time2 = Time.get_unix_time_from_system()
-		if (time2 - time > .35 && time2 - time < 2):
+		if (time2 - time > .5 && time2 - time < 2):
 			position.y -= 5 * delta
 		if (time2 - time > 5):
 			time = 0

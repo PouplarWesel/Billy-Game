@@ -5,7 +5,7 @@ var distance = 3
 var timePause = 2
 var paused = false
 var flipped = false
-var isOn = true
+var isOn = false
 
 var count = 0
 
@@ -14,6 +14,7 @@ var count1 = 0
 var time
 
 func _physics_process(delta):
+	print(delta)
 	if (isOn):
 		count1 += 1
 		if (isFoward && !paused && count1 % 20 == 0):
@@ -23,12 +24,12 @@ func _physics_process(delta):
 				position.z += 1
 			count += 1
 			if ($Area3D.has_overlapping_bodies()):
-				var body = $Area3D.get_overlapping_bodies()
-				print(body)
-				if (flipped):
-					%Toad.position.x += 1
-				else:
-					%Toad.position.z += 1
+				for items in $Area3D.get_overlapping_bodies():
+					if (items.name == "Toad"):
+						if (flipped):
+							%Toad.position.x += 1
+						else:
+							%Toad.position.z += 1
 			
 				
 				
@@ -39,13 +40,13 @@ func _physics_process(delta):
 				position.z += -1
 			count += 1
 			if ($Area3D.has_overlapping_bodies()):
-				var body = $Area3D.get_overlapping_bodies()
-				print(body)
-				if (flipped):
-					%Toad.position.x -= 1
-				else:
-					%Toad.position.z -= 1
-		
+				for items in $Area3D.get_overlapping_bodies():
+					if (items.name == "Toad"):
+						if (flipped):
+							%Toad.position.x -= 1
+						else:
+							%Toad.position.z -= 1
+			
 		if (count == distance):
 			time = Time.get_unix_time_from_system()
 			count = 0
@@ -55,6 +56,9 @@ func _physics_process(delta):
 			if (Time.get_unix_time_from_system() - time >= timePause):
 				paused = false
 				isFoward = !isFoward
+		
+func flipOn():
+	isOn = !isOn
 				
 		
 			

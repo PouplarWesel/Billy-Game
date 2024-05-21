@@ -207,11 +207,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 6, 5)
 [node name="InvisableWall3" parent="Level/InvisableWall" instance=ExtResource("16_75hic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 6, 4)
 
-[node name="Crate" parent="." instance=ExtResource("17_mi15r")]
+[node name="Crates" type="Node3D" parent="Level"]
+
+[node name="Crate" parent="Level/Crates" instance=ExtResource("17_mi15r")]
 transform = Transform3D(0.738526, 0, 0.674225, 0, 1, 0, -0.674225, 0, 0.738526, 1.06837, 9.25812, -1)
 
-[node name="Crate2" parent="." instance=ExtResource("17_mi15r")]
+[node name="Crate2" parent="Level/Crates" instance=ExtResource("17_mi15r")]
 transform = Transform3D(0.738526, 0, 0.674225, 0, 1, 0, -0.674225, 0, 0.738526, 1.52426, 10.484, -1.63478)
 
-[node name="Crate3" parent="." instance=ExtResource("17_mi15r")]
+[node name="Crate3" parent="Level/Crates" instance=ExtResource("17_mi15r")]
 transform = Transform3D(-0.792598, 0, -0.609744, 0, 1, 0, 0.609744, 0, -0.792598, 0.410529, 8.75188, -1.72633)
