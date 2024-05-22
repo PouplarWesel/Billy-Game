@@ -1,8 +1,8 @@
 extends StaticBody3D
 
 var isFoward = false
-var distance = 3
-var timePause = 2
+@export var distance = 3
+@export var timePause = 2
 var paused = false
 var flipped = false
 var isOn = false
@@ -14,7 +14,6 @@ var count1 = 0
 var time
 
 func _physics_process(delta):
-	print(delta)
 	if (isOn):
 		count1 += 1
 		if (isFoward && !paused && count1 % 20 == 0):

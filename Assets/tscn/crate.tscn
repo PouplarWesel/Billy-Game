@@ -1,14 +1,102 @@
-[gd_scene load_steps=3 format=3 uid="uid://bagp4arcifcqg"]
+[gd_scene load_steps=7 format=3 uid="uid://bagp4arcifcqg"]
 
 [ext_resource type="ArrayMesh" uid="uid://dngxsnxp30rwr" path="res://Assets/Models/OBJ format/crate.obj" id="1_dqf7v"]
+
+[sub_resource type="GDScript" id="GDScript_g38tr"]
+script/source = "extends RigidBody3D
+
+func getSide():
+	if ($\"1Z\".has_overlapping_bodies()):
+		for items in $\"1Z\".get_overlapping_bodies():
+			if (items.name == \"Toad\"):
+				if ($\"-1Z/1Z\".is_colliding() && (!$\"-1Z/1Z\".get_collider().name.contains(\"Base\") || ($\"-1Z/1Z\".get_collider().name.contains(\"Base\") && $\"-1Z/1Z\".get_collider().get_parent().isPressed))):
+					print($\"-1Z/1Z\".get_collider())
+					return null
+				return \"1Z\"
+	if ($\"-1X\".has_overlapping_bodies()):
+		for items in $\"-1X\".get_overlapping_bodies():
+			if (items.name == \"Toad\"):
+				if ($\"1X/-1X\".is_colliding() && (!$\"1X/-1X\".get_collider().name.contains(\"Base\") || ($\"1X/-1X\".get_collider().name.contains(\"Base\") && $\"1X/-1X\".get_collider().get_parent().isPressed))):
+					print($\"1X/-1X\".get_collider())
+					return null
+				return \"-1X\"
+	if ($\"1X\".has_overlapping_bodies()):
+		for items in $\"1X\".get_overlapping_bodies():
+			if (items.name == \"Toad\"):
+				if ($\"-1X/1X\".is_colliding() && (!$\"-1X/1X\".get_collider().name.contains(\"Base\") || ($\"-1X/1X\".get_collider().name.contains(\"Base\") && $\"-1X/1X\".get_collider().get_parent().isPressed))):
+					print($\"-1X/1X\".get_collider())
+					return null
+				return \"1X\"
+	if ($\"-1Z\".has_overlapping_bodies()):
+		for items in $\"-1Z\".get_overlapping_bodies():
+			if (items.name == \"Toad\"):
+				if ($\"1Z/-1Z\".is_colliding() && (!$\"1Z/-1Z\".get_collider().name.contains(\"Base\") || ($\"1Z/-1Z\".get_collider().name.contains(\"Base\") && $\"1Z/-1Z\".get_collider().get_parent().isPressed))):
+					print($\"1Z/-1Z\".get_collider())
+					return null
+					
+				return \"-1Z\"
+	return null
+"
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r10qd"]
 points = PackedVector3Array(-0.25, 9.79448e-05, -0.25, 0.249994, 0.499902, 0.25, -0.25, 0.499902, 0.25, 0.249994, 0.499902, -0.25, 0.249994, 9.78964e-05, 0.25, 0.249994, 9.78964e-05, -0.25, -0.25, 9.79448e-05, 0.25, -0.25, 0.499902, -0.25)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_y0lkj"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q5sgi"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vn02a"]
+
 [node name="Crate" type="RigidBody3D"]
+script = SubResource("GDScript_g38tr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_dqf7v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_r10qd")
+
+[node name="1Z" type="Area3D" parent="."]
+
+[node name="-1Z" type="RayCast3D" parent="1Z"]
+transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 0.0956531, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1Z"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.5)
+shape = SubResource("BoxShape3D_y0lkj")
+
+[node name="CollisionShape3D2" type="MeshInstance3D" parent="1Z"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.25, -0.5)
+mesh = SubResource("BoxMesh_q5sgi")
+
+[node name="-1X" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="-1X"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.491, 0.25, 0)
+shape = SubResource("BoxShape3D_y0lkj")
+
+[node name="1X" type="RayCast3D" parent="-1X"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0956531, 0)
+
+[node name="1X" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1X"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.5, 0.25, 0)
+shape = SubResource("BoxShape3D_y0lkj")
+
+[node name="CollisionShape3D2" type="MeshInstance3D" parent="1X"]
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, -0.5, 0.25, 0)
+mesh = SubResource("CapsuleMesh_vn02a")
+
+[node name="-1X" type="RayCast3D" parent="1X"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0956531, 0)
+
+[node name="-1Z" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="-1Z"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.5)
+shape = SubResource("BoxShape3D_y0lkj")
+
+[node name="1Z" type="RayCast3D" parent="-1Z"]
+transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, 0.0956531, 0)

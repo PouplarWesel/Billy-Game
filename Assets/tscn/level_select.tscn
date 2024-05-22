@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ceryu8fp1m4k6"]
+[gd_scene load_steps=10 format=3 uid="uid://ceryu8fp1m4k6"]
 
 [ext_resource type="Script" path="res://Assets/Code/LevelSelectionOrbs.gd" id="1_3yk61"]
 [ext_resource type="PackedScene" uid="uid://bhrgfiej020bq" path="res://Assets/tscn/level_1_selection.tscn" id="1_hsgg8"]
 [ext_resource type="PackedScene" uid="uid://c5gcd102qlsa0" path="res://Assets/tscn/level_2_selection.tscn" id="2_ygyvr"]
 [ext_resource type="Script" path="res://Assets/tscn/Camera3D.gd" id="4_m7n4n"]
 [ext_resource type="PackedScene" uid="uid://dyh1ytviifjnv" path="res://Assets/tscn/level_3_selection.tscn" id="5_3wdst"]
+[ext_resource type="PackedScene" uid="uid://bs6v4imr3xfoa" path="res://Assets/tscn/level_4_selection.tscn" id="6_45kyb"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1bbcd"]
 
@@ -78,3 +79,39 @@ surface_material_override/0 = SubResource("StandardMaterial3D_aqhu6")
 
 [node name="Level3Selection" parent="Level3" instance=ExtResource("5_3wdst")]
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)
+
+[node name="Level4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0815376, 5.99667)
+script = ExtResource("1_3yk61")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level4"]
+shape = SubResource("SphereShape3D_1bbcd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Level4"]
+mesh = SubResource("SphereMesh_71p5v")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_aqhu6")
+
+[node name="Level4Selection" parent="Level4" instance=ExtResource("6_45kyb")]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.264932, 0, 0.0951633)
+
+[node name="Labels" type="Node3D" parent="."]
+
+[node name="Label1Label" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.452236, -0.26485, 0.0220201)
+text = "Level 1
+"
+
+[node name="Level2Label" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.452236, -0.26485, 2.01869)
+text = "Level 2"
+
+[node name="Level3Label" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.452236, -0.26485, 4.01869)
+text = "Level 3
+"
+
+[node name="Level4Label" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.452236, -0.26485, 6.01869)
+text = "Level 4
+"

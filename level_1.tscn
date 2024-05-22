@@ -220,6 +220,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.4855
 [node name="Ladder" parent="Area/Ladders" instance=ExtResource("6_aix8u")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.246, 0, 1.5)
 
+[node name="Ladder3" parent="Area/Ladders" instance=ExtResource("6_aix8u")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.08494, 1, 0.465336)
+
 [node name="Ground" type="Node3D" parent="Area"]
 
 [node name="Top" type="Node3D" parent="Area/Ground"]
@@ -4958,6 +4961,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 2, 0.5)
 
 [node name="InvisableWall" parent="Area/InvisableWalls" instance=ExtResource("12_insfp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, 0.5)
+
+[node name="InvisableWall9" parent="Area/InvisableWalls" instance=ExtResource("12_insfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 2, -7.5)
+
+[node name="InvisableWall10" parent="Area/InvisableWalls" instance=ExtResource("12_insfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2, -7.5)
+
+[node name="InvisableWall11" parent="Area/InvisableWalls" instance=ExtResource("12_insfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2, -7.5)
+
+[node name="InvisableWall12" parent="Area/InvisableWalls" instance=ExtResource("12_insfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 2, -7.5)
+
+[node name="InvisableWall13" parent="Area/InvisableWalls" instance=ExtResource("12_insfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 2, -7.5)
+
+[node name="InvisableWall14" parent="Area/InvisableWalls" instance=ExtResource("12_insfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, 1.5)
+
+[node name="InvisableWall15" parent="Area/InvisableWalls" instance=ExtResource("12_insfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, 2.5)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Area"]
 transform = Transform3D(0.625356, 0.345547, -0.699662, 0.266892, 0.747828, 0.607883, 0.733279, -0.566877, 0.375436, -4.32651, 3.62866, 5.07646)

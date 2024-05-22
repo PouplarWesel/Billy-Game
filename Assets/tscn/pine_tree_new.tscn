@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fquytvaxj4wo"]
+
+[ext_resource type="ArrayMesh" uid="uid://db5go5eqttq3n" path="res://Assets/New Models/OBJ format/tree-pine-small.obj" id="1_64gwp"]
+
+[node name="PineTreeNew" type="MeshInstance3D"]
+mesh = ExtResource("1_64gwp")

@@ -1,0 +1,253 @@
+[gd_scene load_steps=20 format=3 uid="uid://bs6v4imr3xfoa"]
+
+[ext_resource type="PackedScene" uid="uid://cdlqyv2bvdhec" path="res://Assets/tscn/cake.tscn" id="1_2rein"]
+[ext_resource type="PackedScene" uid="uid://6t2ywm1sqt4q" path="res://Assets/tscn/ladder.tscn" id="2_fpnrh"]
+[ext_resource type="Script" path="res://MovingBlock1.gd" id="3_cpnkc"]
+[ext_resource type="PackedScene" uid="uid://dxej15eagyt41" path="res://Assets/tscn/moving_block.tscn" id="4_p7wrt"]
+[ext_resource type="Script" path="res://Assets/Code/Level4/MovingBlock2.gd" id="5_qd3n0"]
+[ext_resource type="PackedScene" uid="uid://ci25asvgxh4o4" path="res://Assets/tscn/coin.tscn" id="6_1y5pp"]
+[ext_resource type="PackedScene" uid="uid://cad4bjwkv8cil" path="res://Assets/tscn/button_timer.tscn" id="7_vpa42"]
+[ext_resource type="MeshLibrary" uid="uid://c62f1vf7bbi2s" path="res://Assets/Mesh Library/new_new__new_tiles.tres" id="8_8tgf2"]
+[ext_resource type="PackedScene" uid="uid://cstr5djd3s3p6" path="res://Assets/tscn/button.tscn" id="9_bvgi7"]
+[ext_resource type="PackedScene" uid="uid://djqeya0nukajm" path="res://Assets/tscn/block_falling.tscn" id="10_7v3al"]
+[ext_resource type="PackedScene" uid="uid://ce20cu28o2rp3" path="res://Assets/tscn/rock.tscn" id="11_ehg6x"]
+[ext_resource type="PackedScene" uid="uid://fquytvaxj4wo" path="res://Assets/tscn/pine_tree_new.tscn" id="12_o00xn"]
+[ext_resource type="PackedScene" uid="uid://b106yxijfefds" path="res://Assets/tscn/tree_new.tscn" id="13_r1uty"]
+[ext_resource type="PackedScene" uid="uid://c8hq4emp6js6j" path="res://Assets/tscn/flowers.tscn" id="14_djyts"]
+[ext_resource type="PackedScene" uid="uid://bqvqun3wf0cd6" path="res://Assets/tscn/flowers_new.tscn" id="15_qk4gb"]
+[ext_resource type="PackedScene" uid="uid://cej2hv134j4db" path="res://Assets/New Models/GLB format/flowers-tall.glb" id="16_oklls"]
+
+[sub_resource type="GDScript" id="GDScript_yp8d5"]
+script/source = "extends Node3D
+
+var isPressed = false
+
+func _ready():
+	$\"..\".distance = 2
+	$\"..\".isFoward = true
+	
+		
+		
+"
+
+[sub_resource type="GDScript" id="GDScript_ocioe"]
+script/source = "extends Node3D
+
+var isPressed = false
+
+func _ready():
+	$\"..\".distance = 2
+	$\"..\".isFoward = true
+"
+
+[sub_resource type="GDScript" id="GDScript_8wwrk"]
+script/source = "extends Node3D
+
+var isPressed = false
+
+func _ready():
+	$\"..\".distance = 5
+
+	
+"
+
+[node name="Level4Selection" type="Node3D"]
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Ladder" parent="Map" instance=ExtResource("2_fpnrh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 3.3451, 0.605076)
+
+[node name="MovingBlock1" type="Node3D" parent="Map"]
+script = ExtResource("3_cpnkc")
+
+[node name="MovingBlock" parent="Map/MovingBlock1" instance=ExtResource("4_p7wrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.768, -5)
+
+[node name="Node3D" type="Node3D" parent="Map/MovingBlock1/MovingBlock"]
+script = SubResource("GDScript_yp8d5")
+
+[node name="MovingBlock2" parent="Map/MovingBlock1" instance=ExtResource("4_p7wrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4.768, -5)
+
+[node name="Node3D" type="Node3D" parent="Map/MovingBlock1/MovingBlock2"]
+script = SubResource("GDScript_ocioe")
+
+[node name="MovingBlock2" type="Node3D" parent="Map"]
+script = ExtResource("5_qd3n0")
+
+[node name="MovingBlock3" parent="Map/MovingBlock2" instance=ExtResource("4_p7wrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 4.768, -1)
+
+[node name="Node3D" type="Node3D" parent="Map/MovingBlock2/MovingBlock3"]
+script = SubResource("GDScript_8wwrk")
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(-0.607417, -0.321021, 0.726629, 0.0324677, 0.903912, 0.426485, -0.793719, 0.282646, -0.538629, 18.6747, 16.4268, 0.292381)
+
+[node name="Coin3" parent="Map" instance=ExtResource("6_1y5pp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 5.47, 4)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(0.99931, -0.0370523, 0.00245419, 0.0324677, 0.903912, 0.426485, -0.0180206, -0.426111, 0.904491, 1.52936, 16.4268, 0.292381)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(0.928522, -0.126287, -0.349139, 0.357895, 0.0542537, 0.932184, -0.0987806, -0.990509, 0.0955733, 1.52936, 16.4268, -18.262)
+
+[node name="ButtonTimer" parent="Map" instance=ExtResource("7_vpa42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5.22459, 2)
+
+[node name="GridMap" type="GridMap" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+mesh_library = ExtResource("8_8tgf2")
+cell_size = Vector3(1, 0.5, 1)
+data = {
+"cells": PackedInt32Array(65534, 1, 11, 65535, 1, 11, 0, 1, 11, 1, 1, 11, 1, 65535, 11, 1, 0, 11, 0, 0, 11, 65535, 0, 11, 65535, 65535, 11, 65534, 65535, 11, 65533, 65535, 11, 65533, 65534, 11, 65533, 0, 11, 65533, 1, 11, 65533, 2, 11, 65534, 2, 11, 65535, 2, 11, 0, 2, 11, 1, 2, 11, 2, 2, 11, 2, 1, 11, 65533, 65533, 11, 65534, 65533, 11, 65535, 65533, 11, 0, 65533, 11, 1, 65533, 11, 2, 65533, 11, 2, 65534, 11, 2, 65535, 11, 2, 0, 11, 1, 65534, 11, 0, 65534, 11, 65535, 65534, 11, 0, 65535, 11, 65534, 65534, 11, 65534, 0, 11, 196605, 65533, 11, 196605, 65534, 11, 196605, 65535, 11, 196605, 0, 11, 196605, 1, 11, 196605, 2, 11, 131074, 65533, 11, 131073, 65533, 11, 131072, 65533, 11, 196607, 65533, 11, 196606, 65533, 11, 196606, 65534, 11, 196606, 65535, 11, 196606, 0, 11, 196606, 1, 11, 196606, 2, 11, 196607, 2, 11, 131072, 2, 11, 196607, 65534, 11, 196607, 65535, 11, 196607, 0, 11, 196607, 1, 11, 131072, 65534, 11, 131072, 65535, 11, 131072, 0, 11, 131072, 1, 11, 131073, 65534, 11, 131073, 65535, 11, 131073, 0, 11, 131073, 1, 11, 131073, 2, 11, 131074, 65534, 11, 131074, 65535, 11, 131074, 0, 11, 131074, 1, 11, 131074, 2, 11, 327677, 0, 3, 327678, 0, 3, 327679, 0, 3, 327679, 1, 3, 327679, 2, 3, 327678, 2, 3, 327677, 2, 3, 327677, 1, 3, 327678, 1, 3, 262144, 2, 11, 262145, 2, 11, 262146, 2, 11, 262146, 1, 11, 262145, 1, 11, 262144, 1, 11, 262144, 0, 11, 262145, 0, 11, 262146, 0, 11, 262146, 65535, 11, 262146, 65534, 11, 262146, 65533, 11, 262145, 65533, 11, 262144, 65533, 11, 327679, 65533, 11, 327678, 65533, 11, 327677, 65533, 11, 327677, 65534, 11, 327677, 65535, 11, 327678, 65535, 11, 327678, 65534, 11, 327679, 65534, 11, 327679, 65535, 11, 262144, 65535, 11, 262145, 65535, 11, 262145, 65534, 11, 262144, 65534, 11, 393216, 0, 11, 393218, 0, 11, 393218, 1, 11, 393218, 2, 11, 393217, 2, 11, 393216, 2, 11, 393216, 65535, 11, 458751, 65535, 11, 458750, 65535, 11, 458749, 65535, 11, 458749, 65534, 11, 458749, 65533, 11, 458750, 65533, 11, 458751, 65533, 11, 393216, 65533, 11, 393217, 65533, 11, 393218, 65533, 11, 393218, 65534, 11, 393218, 65535, 11, 393217, 65534, 11, 393217, 65535, 11, 458750, 65534, 11, 458751, 65534, 11, 393216, 65534, 11, 524290, 2, 3, 524289, 2, 3, 524288, 2, 3, 524290, 65534, 3, 524289, 65534, 3, 524288, 65534, 3, 589823, 65534, 3, 589822, 65534, 3, 589821, 65534, 3, 589821, 65535, 3, 524290, 65533, 3, 524289, 65533, 3, 524288, 65533, 3, 589823, 65533, 3, 589822, 65533, 3, 589821, 65533, 3, 524290, 65535, 3, 524290, 0, 3, 524290, 1, 3, 524289, 1, 3, 524288, 1, 3, 524288, 0, 3, 524289, 0, 3, 524289, 65535, 3, 589823, 65535, 3, 589822, 65535, 3, 524288, 65535, 3, 589821, 65529, 3, 589822, 65529, 3, 589823, 65529, 3, 589823, 65528, 3, 524288, 65528, 3, 524289, 65528, 3, 524290, 65528, 3, 524290, 65529, 3, 524289, 65529, 3, 524288, 65529, 3, 589821, 65528, 3, 589822, 65528, 3, 524290, 65526, 3, 524289, 65526, 3, 524288, 65526, 3, 589823, 65526, 3, 589822, 65526, 3, 589821, 65526, 3, 589821, 65527, 3, 589822, 65527, 3, 589823, 65527, 3, 524288, 65527, 3, 524289, 65527, 3, 524290, 65527, 3, 589821, 65525, 3, 589822, 65525, 3, 589823, 65525, 3, 524288, 65525, 3, 524289, 65525, 3, 524290, 65525, 3, 524298, 65525, 3, 524298, 65526, 3, 524299, 65526, 3, 524300, 65526, 3, 524300, 65527, 3, 524301, 65527, 3, 524302, 65527, 3, 524302, 65525, 3, 524301, 65525, 3, 524300, 65525, 3, 524299, 65525, 3, 524302, 65526, 3, 524301, 65526, 3, 524302, 65528, 3, 524301, 65528, 3, 524300, 65528, 3, 524299, 65528, 3, 524298, 65528, 3, 524298, 65527, 3, 524299, 65527, 3, 524300, 65535, 3, 524301, 65535, 3, 524301, 0, 3, 524301, 1, 3, 524300, 1, 3, 524299, 1, 3, 524299, 0, 3, 524299, 65535, 3, 524300, 0, 3, 524302, 1, 3, 524302, 0, 3, 524298, 0, 3, 524298, 1, 3, 524298, 2, 3, 524299, 2, 3, 524300, 2, 3, 524300, 3, 3, 524301, 3, 3, 524302, 3, 3, 524302, 2, 3, 524301, 2, 3, 524299, 3, 3, 524298, 3, 3, 458749, 65525, 11, 458749, 65526, 11, 458749, 65527, 11, 458749, 65528, 11, 458749, 65529, 11, 393218, 65525, 11, 393217, 65525, 11, 393216, 65525, 11, 458751, 65525, 11, 458750, 65525, 11, 458750, 65529, 11, 458751, 65529, 11, 393216, 65529, 11, 393217, 65529, 11, 393218, 65529, 11, 393218, 65527, 11, 393218, 65528, 11, 393218, 65526, 11, 327677, 65525, 11, 327677, 65526, 11, 327677, 65527, 11, 327677, 65528, 11, 327677, 65529, 11, 327678, 65525, 11, 327678, 65526, 11, 327678, 65527, 11, 327678, 65528, 11, 327678, 65529, 11, 327679, 65525, 11, 327679, 65526, 11, 327679, 65527, 11, 327679, 65528, 11, 327679, 65529, 11, 262144, 65525, 11, 262144, 65526, 11, 262144, 65527, 11, 262144, 65528, 11, 262144, 65529, 11, 262145, 65525, 11, 262145, 65526, 11, 262145, 65527, 11, 262145, 65528, 11, 262145, 65529, 11, 262146, 65525, 11, 262146, 65526, 11, 262146, 65527, 11, 262146, 65528, 11, 262146, 65529, 11, 131074, 65529, 11, 131073, 65528, 11, 131072, 65528, 11, 131072, 65527, 11, 196607, 65527, 11, 196607, 65526, 11, 196606, 65526, 11, 196606, 65525, 11, 196606, 65527, 11, 196606, 65528, 11, 196606, 65529, 11, 196607, 65525, 11, 196607, 65528, 11, 196607, 65529, 11, 131072, 65525, 11, 131072, 65526, 11, 131072, 65529, 11, 131073, 65525, 11, 131073, 65526, 11, 131073, 65527, 11, 131073, 65529, 11, 131074, 65525, 11, 131074, 65526, 11, 131074, 65527, 11, 131074, 65528, 11, 65533, 65525, 11, 65533, 65526, 11, 65533, 65527, 11, 65533, 65528, 11, 65533, 65529, 11, 65534, 65525, 11, 65534, 65526, 11, 65534, 65527, 11, 65534, 65528, 11, 65534, 65529, 11, 65535, 65525, 11, 65535, 65526, 11, 65535, 65527, 11, 65535, 65528, 11, 65535, 65529, 11, 0, 65525, 11, 0, 65526, 11, 0, 65527, 11, 0, 65528, 11, 0, 65529, 11, 1, 65526, 11, 1, 65527, 11, 1, 65528, 11, 1, 65529, 11, 2, 65526, 11, 2, 65527, 11, 2, 65528, 11, 2, 65529, 11, 196605, 65529, 11, 196605, 65528, 11, 196605, 65527, 11, 196605, 65526, 11, 196605, 65525, 11, 1, 65525, 11, 2, 65525, 11, 10, 65525, 11, 10, 65526, 11, 10, 65527, 11, 11, 65525, 11, 11, 65526, 11, 11, 65527, 11, 11, 65528, 11, 12, 65525, 11, 12, 65526, 11, 12, 65527, 11, 12, 65528, 11, 13, 65525, 11, 13, 65526, 11, 13, 65527, 11, 13, 65528, 11, 14, 65525, 11, 14, 65526, 11, 14, 65527, 11, 14, 65528, 11, 131082, 65526, 11, 131082, 65527, 11, 131082, 65528, 11, 131083, 65525, 11, 131083, 65526, 11, 131083, 65527, 11, 131083, 65528, 11, 131084, 65525, 11, 131084, 65526, 11, 131084, 65527, 11, 131084, 65528, 11, 131085, 65525, 11, 131085, 65526, 11, 131085, 65527, 11, 131085, 65528, 11, 131086, 65525, 11, 131086, 65526, 11, 131086, 65527, 11, 131086, 65528, 11, 262154, 65525, 11, 262154, 65526, 11, 262154, 65527, 11, 262154, 65528, 11, 262155, 65525, 11, 262155, 65526, 11, 262155, 65527, 11, 262155, 65528, 11, 262156, 65525, 11, 262156, 65526, 11, 262156, 65527, 11, 262156, 65528, 11, 262157, 65525, 11, 262157, 65526, 11, 262157, 65527, 11, 262157, 65528, 11, 262158, 65525, 11, 262158, 65526, 11, 262158, 65527, 11, 262158, 65528, 11, 10, 65528, 11, 131082, 65525, 11, 393226, 65525, 11, 393226, 65526, 11, 393227, 65525, 11, 393228, 65525, 11, 393228, 65526, 11, 393227, 65526, 11, 393226, 65527, 11, 393226, 65528, 11, 393227, 65527, 11, 393228, 65528, 11, 393227, 65528, 11, 393228, 65527, 11, 393229, 65525, 11, 393230, 65526, 11, 393230, 65527, 11, 393230, 65528, 11, 393229, 65528, 11, 393229, 65527, 11, 393229, 65526, 11, 393230, 65525, 11)
+}
+metadata/_editor_floor_ = Vector3(0, 6, 0)
+
+[node name="Coin" parent="Map" instance=ExtResource("6_1y5pp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99317, 3.48827, 1.38757)
+
+[node name="Coin2" parent="Map" instance=ExtResource("6_1y5pp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 5.47, -12)
+
+[node name="Button" parent="Map" instance=ExtResource("9_bvgi7")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2, 3.23, 2)
+
+[node name="FallingBlocks" type="Node3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.213632, 0.5)
+
+[node name="BlockFalling" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 4.76762, -8.5)
+
+[node name="BlockFalling2" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4.76762, -8.5)
+
+[node name="BlockFalling3" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4.76762, -9.5)
+
+[node name="BlockFalling4" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4.76762, -10.5)
+
+[node name="BlockFalling5" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 4.76762, -10.5)
+
+[node name="BlockFalling6" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 4.76762, -10.5)
+
+[node name="BlockFalling7" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 4.76762, -10.5)
+
+[node name="BlockFalling8" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 4.76762, -9.5)
+
+[node name="BlockFalling9" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 4.76762, -8.5)
+
+[node name="BlockFalling10" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 4.76762, -8.5)
+
+[node name="BlockFalling11" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 4.76762, -8.5)
+
+[node name="BlockFalling12" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4.76762, -11.5)
+
+[node name="BlockFalling13" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4.76762, -12.5)
+
+[node name="BlockFalling14" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 4.76762, -12.5)
+
+[node name="BlockFalling15" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 4.76762, -12.5)
+
+[node name="BlockFalling16" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 4.76762, -12.5)
+
+[node name="BlockFalling17" parent="Map/FallingBlocks" instance=ExtResource("10_7v3al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 4.76762, -11.5)
+
+[node name="Rock" type="Node3D" parent="Map"]
+
+[node name="Rock" parent="Map/Rock" instance=ExtResource("11_ehg6x")]
+transform = Transform3D(-0.333264, 0, 0.942834, 0, 1, 0, -0.942834, 0, -0.333264, -2, 5.21392, -6)
+
+[node name="Rock2" parent="Map/Rock" instance=ExtResource("11_ehg6x")]
+transform = Transform3D(0.66743, 0, 0.744673, 0, 1, 0, -0.744673, 0, 0.66743, 15, 5.22979, -6.81915)
+
+[node name="Tree" type="Node3D" parent="Map"]
+
+[node name="PineTreeNew" parent="Map/Tree" instance=ExtResource("12_o00xn")]
+transform = Transform3D(-0.996409, 0, 0.0846693, 0, 1, 0, -0.0846693, 0, -0.996409, 11.0917, 5.17152, -10.0824)
+skeleton = NodePath("../TreeNew2")
+
+[node name="TreeNew" parent="Map/Tree" instance=ExtResource("13_r1uty")]
+transform = Transform3D(0.906256, 0, 0.422729, 0, 1, 0, -0.422729, 0, 0.906256, 2.63455, 5.17152, -1.90289)
+skeleton = NodePath("../../Flower/flowers-tall5")
+
+[node name="TreeNew2" parent="Map/Tree" instance=ExtResource("13_r1uty")]
+transform = Transform3D(0.642881, 0, -0.765966, 0, 1, 0, 0.765966, 0, 0.642881, 11.0917, 5.17152, 3.91761)
+skeleton = NodePath("../../Flower/flowers-tall5")
+
+[node name="Flower" type="Node3D" parent="Map"]
+
+[node name="Flowers" parent="Map/Flower" instance=ExtResource("14_djyts")]
+transform = Transform3D(0.810645, 0, -0.585538, 0, 1, 0, 0.585538, 0, 0.810645, 0, 5.26507, 0)
+skeleton = NodePath("../../..")
+
+[node name="Flowers2" parent="Map/Flower" instance=ExtResource("14_djyts")]
+transform = Transform3D(0.84295, 0, 0.537991, 0, 1, 0, -0.537991, 0, 0.84295, 2.7622, 5.26507, -1.18987)
+skeleton = NodePath("../../..")
+
+[node name="Flowers3" parent="Map/Flower" instance=ExtResource("14_djyts")]
+transform = Transform3D(-0.767165, 0, 0.64145, 0, 1, 0, -0.64145, 0, -0.767165, 2.7622, 5.26507, 2.81013)
+skeleton = NodePath("../../..")
+
+[node name="Flowers4" parent="Map/Flower" instance=ExtResource("14_djyts")]
+transform = Transform3D(-0.932784, 0, -0.360436, 0, 1, 0, 0.360436, 0, -0.932784, 2.7622, 5.26507, -10.0106)
+skeleton = NodePath("../../..")
+
+[node name="Flowers5" parent="Map/Flower" instance=ExtResource("14_djyts")]
+transform = Transform3D(-0.752035, 0, 0.659123, 0, 1, 0, -0.659123, 0, -0.752035, 14.7622, 5.26507, -10.0106)
+skeleton = NodePath("../../..")
+
+[node name="Flowers6" parent="Map/Flower" instance=ExtResource("14_djyts")]
+transform = Transform3D(-0.377906, 0, -0.925844, 0, 1, 0, 0.925844, 0, -0.377906, 14.7622, 5.26507, 1.98938)
+skeleton = NodePath("../../..")
+
+[node name="flowers_new" parent="Map/Flower" instance=ExtResource("15_qk4gb")]
+transform = Transform3D(0.765068, 0, -0.64395, 0, 1, 0, 0.64395, 0, 0.765068, 0, 3.24127, 1.1142)
+skeleton = NodePath("../../..")
+
+[node name="flowers_new2" parent="Map/Flower" instance=ExtResource("15_qk4gb")]
+transform = Transform3D(-0.125437, 0, -0.992102, 0, 1, 0, 0.992102, 0, -0.125437, -2, 5.24127, -1.8858)
+skeleton = NodePath("../../..")
+
+[node name="flowers_new3" parent="Map/Flower" instance=ExtResource("15_qk4gb")]
+transform = Transform3D(-0.125437, 0, -0.992102, 0, 1, 0, 0.992102, 0, -0.125437, -2, 5.24127, -7.8858)
+skeleton = NodePath("../../..")
+
+[node name="flowers_new4" parent="Map/Flower" instance=ExtResource("15_qk4gb")]
+transform = Transform3D(-0.916544, 0, 0.399933, 0, 1, 0, -0.399933, 0, -0.916544, 13, 5.24127, -7.8858)
+skeleton = NodePath("../../..")
+
+[node name="flowers_new5" parent="Map/Flower" instance=ExtResource("15_qk4gb")]
+transform = Transform3D(-0.916544, 0, 0.399933, 0, 1, 0, -0.399933, 0, -0.916544, 1, 5.24127, 2.1142)
+skeleton = NodePath("../../..")
+
+[node name="flowers-tall2" parent="Map/Flower" instance=ExtResource("16_oklls")]
+transform = Transform3D(0.679185, 0, -0.733967, 0, 1, 0, 0.733967, 0, 0.679185, 3.10855, 5.17152, 0)
+
+[node name="flowers-tall3" parent="Map/Flower" instance=ExtResource("16_oklls")]
+transform = Transform3D(0.933399, 0, 0.35884, 0, 1, 0, -0.35884, 0, 0.933399, -0.891453, 5.17152, -2)
+
+[node name="flowers-tall4" parent="Map/Flower" instance=ExtResource("16_oklls")]
+transform = Transform3D(-0.241922, 0, 0.970296, 0, 1, 0, -0.970296, 0, -0.241922, 2.10855, 5.17152, -7)
+
+[node name="flowers-tall5" parent="Map/Flower" instance=ExtResource("16_oklls")]
+transform = Transform3D(0.906256, 0, 0.422729, 0, 1, 0, -0.422729, 0, 0.906256, -0.365452, 5.17152, -9.90289)
+
+[node name="Cake" parent="Map" instance=ExtResource("1_2rein")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 6.66511, 4)

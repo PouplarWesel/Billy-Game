@@ -31,6 +31,7 @@ offset_bottom = 205.0
 script = ExtResource("1_bye6l")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
 offset_left = -767.0
 offset_top = 234.0
 offset_right = -255.0
@@ -45,11 +46,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 script = ExtResource("3_q3wj3")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.95353)
-
-[node name="TextEdit" type="TextEdit" parent="SubViewportContainer"]
-layout_mode = 2
-text = "SO COOL GAME"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.3567)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0

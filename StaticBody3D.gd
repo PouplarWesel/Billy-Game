@@ -7,7 +7,6 @@ var isOverLapping = false
 
 func _ready():
 	pos = position
-	print(pos)
 	
 func _physics_process(delta):
 	if ($Area3D.has_overlapping_bodies()):
