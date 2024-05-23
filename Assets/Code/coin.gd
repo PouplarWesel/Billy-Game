@@ -29,5 +29,6 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	if(body.name.contains("Toad")):
 		queue_free()
-		%Toad.coin += 1
+		if (Global.currentLevel != null):
+			Global.currentCoins[Global.currentLevel] += 1
 	

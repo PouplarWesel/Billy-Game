@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://p0f2d6ujc616"]
+[gd_scene load_steps=22 format=3 uid="uid://p0f2d6ujc616"]
 
 [ext_resource type="PackedScene" uid="uid://djqeya0nukajm" path="res://Assets/tscn/block_falling.tscn" id="1_cokrf"]
+[ext_resource type="Environment" uid="uid://bd8n1voq3ksmr" path="res://default_env.tres" id="2_8dkmy"]
 [ext_resource type="MeshLibrary" uid="uid://d0jof6kwf751v" path="res://Assets/Mesh Library/new_new_tiles.tres" id="2_eu7aj"]
 [ext_resource type="PackedScene" uid="uid://dxej15eagyt41" path="res://Assets/tscn/moving_block.tscn" id="3_tngc4"]
 [ext_resource type="Script" path="res://Assets/Code/PathFollow3D.gd" id="4_ih5h6"]
@@ -17,6 +18,14 @@
 [ext_resource type="PackedScene" uid="uid://fquytvaxj4wo" path="res://Assets/tscn/pine_tree_new.tscn" id="16_776qc"]
 [ext_resource type="PackedScene" uid="uid://b106yxijfefds" path="res://Assets/tscn/tree_new.tscn" id="17_7y7mb"]
 [ext_resource type="PackedScene" uid="uid://bt8mtfd2pg2hh" path="res://Assets/tscn/mushroom.tscn" id="18_eh35w"]
+[ext_resource type="PackedScene" uid="uid://cwh682ii1cl3o" path="res://Assets/tscn/coin_hud.tscn" id="18_t27k2"]
+
+[sub_resource type="GDScript" id="GDScript_vfinn"]
+script/source = "extends Node3D
+
+func _ready():
+	Global.currentLevel = 2
+"
 
 [sub_resource type="Curve3D" id="Curve3D_r8cey"]
 _data = {
@@ -27,6 +36,7 @@ point_count = 5
 
 [node name="Level3" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0.25)
+script = SubResource("GDScript_vfinn")
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.134561, 7.77491, -1.52052)
@@ -40,6 +50,7 @@ script = ExtResource("4_ih5h6")
 
 [node name="Camera3D" type="Camera3D" parent="Path3D/PathFollows3D"]
 transform = Transform3D(2.98023e-08, -0.338096, 0.725055, 0, 0.725051, 0.338095, -0.800005, 1.49012e-08, -2.98023e-08, 0.0483227, 0, -0.0322838)
+environment = ExtResource("2_8dkmy")
 
 [node name="Level3Toad" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.518563, 4.71346, -1.51356)
@@ -185,3 +196,5 @@ skeleton = NodePath("../../..")
 [node name="Mushroom3" parent="Map/Mushrooms" instance=ExtResource("18_eh35w")]
 transform = Transform3D(0.0895375, 0, -0.995983, 0, 1, 0, 0.995983, 0, 0.0895375, -1.22666, 3.1094, 5.14234)
 skeleton = NodePath("../../..")
+
+[node name="CoinHUD" parent="." instance=ExtResource("18_t27k2")]

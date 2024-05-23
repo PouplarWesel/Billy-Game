@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://danil3eovro0e"]
+[gd_scene load_steps=21 format=3 uid="uid://danil3eovro0e"]
 
 [ext_resource type="MeshLibrary" uid="uid://d0jof6kwf751v" path="res://Assets/Mesh Library/new_new_tiles.tres" id="2_0fvtq"]
 [ext_resource type="PackedScene" uid="uid://cqtmug65h5r3j" path="res://Assets/tscn/spike.tscn" id="2_124nb"]
+[ext_resource type="Environment" uid="uid://bd8n1voq3ksmr" path="res://default_env.tres" id="2_ywa6j"]
 [ext_resource type="PackedScene" uid="uid://cdlqyv2bvdhec" path="res://Assets/tscn/cake.tscn" id="3_1ns1x"]
 [ext_resource type="Script" path="res://Spikes.gd" id="3_dxkid"]
 [ext_resource type="PackedScene" uid="uid://djqeya0nukajm" path="res://Assets/tscn/block_falling.tscn" id="3_vajoe"]
@@ -16,6 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://davv581o6smow" path="res://Assets/tscn/snow.tscn" id="13_flr8p"]
 [ext_resource type="PackedScene" uid="uid://dmchop8sonr3" path="res://Assets/tscn/tree_snow.tscn" id="14_0ekvo"]
 [ext_resource type="PackedScene" uid="uid://cjxp6cdalie3k" path="res://Assets/tscn/invisable_wall.tscn" id="16_75hic"]
+[ext_resource type="PackedScene" uid="uid://cwh682ii1cl3o" path="res://Assets/tscn/coin_hud.tscn" id="17_7nvv8"]
+
+[sub_resource type="GDScript" id="GDScript_wyvqs"]
+script/source = "extends Node3D
+
+func _ready():
+	Global.currentLevel = 1
+"
 
 [sub_resource type="Curve3D" id="Curve3D_a4e45"]
 _data = {
@@ -25,6 +34,7 @@ _data = {
 point_count = 5
 
 [node name="Level_2" type="Node3D"]
+script = SubResource("GDScript_wyvqs")
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -1.6892, 10.2011, -1.2941)
@@ -38,6 +48,7 @@ script = ExtResource("5_2ihxv")
 
 [node name="Camera3D" type="Camera3D" parent="Path3D/PathFollows3D"]
 transform = Transform3D(2.98023e-08, -0.338096, 0.725055, 0, 0.725051, 0.338095, -0.800005, 1.49012e-08, -2.98023e-08, 0.0483227, 0, -0.0322838)
+environment = ExtResource("2_ywa6j")
 
 [node name="Level2Toad" type="Node3D" parent="."]
 script = ExtResource("8_7dgwo")
@@ -205,3 +216,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 6, 5)
 
 [node name="InvisableWall3" parent="Level/InvisableWall" instance=ExtResource("16_75hic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 6, 4)
+
+[node name="CoinHUD" parent="." instance=ExtResource("17_7nvv8")]

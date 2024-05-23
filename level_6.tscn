@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://dw6suni2hdoim"]
+[gd_scene load_steps=30 format=3 uid="uid://dw6suni2hdoim"]
 
 [ext_resource type="MeshLibrary" uid="uid://bnso50hsfn6f4" path="res://Assets/Mesh Library/even_new_tiles.tres" id="1_ng52k"]
 [ext_resource type="PackedScene" uid="uid://db2e4j6gysje0" path="res://Assets/tscn/toad.tscn" id="2_uajk4"]
 [ext_resource type="Script" path="res://Assets/Code/PathFollow3D.gd" id="3_22e55"]
+[ext_resource type="Environment" uid="uid://bd8n1voq3ksmr" path="res://default_env.tres" id="3_lq67b"]
 [ext_resource type="PackedScene" uid="uid://dxej15eagyt41" path="res://Assets/tscn/moving_block.tscn" id="4_ly4sk"]
 [ext_resource type="PackedScene" uid="uid://bagp4arcifcqg" path="res://Assets/tscn/crate.tscn" id="5_ixg7v"]
 [ext_resource type="PackedScene" uid="uid://4k7h3303p2gb" path="res://Assets/tscn/button_held.tscn" id="5_j03no"]
@@ -16,6 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://6t2ywm1sqt4q" path="res://Assets/tscn/ladder.tscn" id="11_ls2x5"]
 [ext_resource type="PackedScene" uid="uid://cydkps7na0yxs" path="res://Assets/tscn/tall_flowers_new.tscn" id="12_0i4kj"]
 [ext_resource type="PackedScene" uid="uid://b106yxijfefds" path="res://Assets/tscn/tree_new.tscn" id="13_xqxi0"]
+[ext_resource type="PackedScene" uid="uid://cwh682ii1cl3o" path="res://Assets/tscn/coin_hud.tscn" id="17_ch1ol"]
+
+[sub_resource type="GDScript" id="GDScript_f6gae"]
+script/source = "extends Node3D
+
+func _ready():
+	Global.currentLevel = 5
+"
 
 [sub_resource type="GDScript" id="GDScript_ej30i"]
 script/source = "extends Node3D
@@ -105,6 +114,7 @@ func _on_body_entered(body):
 size = Vector3(28.48, 1, 23.715)
 
 [node name="Level6" type="Node3D"]
+script = SubResource("GDScript_f6gae")
 
 [node name="Level6Toad" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
@@ -125,6 +135,7 @@ script = ExtResource("3_22e55")
 
 [node name="Camera3D" type="Camera3D" parent="Path3D/PathFollows3D"]
 transform = Transform3D(0, -0.429056, 0.920127, 0, 0.920116, 0.429051, -1.01524, 1.49012e-08, 8.9407e-08, 0.0483227, 0, -0.0322838)
+environment = ExtResource("3_lq67b")
 script = SubResource("GDScript_7y5ly")
 
 [node name="Map" type="Node3D" parent="."]
@@ -304,5 +315,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 3.2505, -6.5)
 [node name="Button" parent="Map/Button" instance=ExtResource("7_nuhl6")]
 unique_name_in_owner = true
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.5, 3.1745, -0.5)
+
+[node name="CoinHUD" parent="." instance=ExtResource("17_ch1ol")]
 
 [connection signal="body_entered" from="Map/Void" to="Map/Void" method="_on_body_entered"]

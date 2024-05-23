@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://bkrutrjewv602"]
+[gd_scene load_steps=22 format=3 uid="uid://bkrutrjewv602"]
 
 [ext_resource type="PackedScene" uid="uid://dantck3j33yki" path="res://Assets/tscn/block.tscn" id="1_531fg"]
 [ext_resource type="PackedScene" uid="uid://db2e4j6gysje0" path="res://Assets/tscn/toad.tscn" id="2_1g7jl"]
+[ext_resource type="Environment" uid="uid://bd8n1voq3ksmr" path="res://default_env.tres" id="2_x3lo3"]
 [ext_resource type="PackedScene" uid="uid://ir3mnj6iwtmi" path="res://Assets/tscn/block_dirt.tscn" id="3_54hfd"]
 [ext_resource type="Script" path="res://Assets/Code/PathFollow3D.gd" id="5_k57hc"]
 [ext_resource type="PackedScene" uid="uid://6t2ywm1sqt4q" path="res://Assets/tscn/ladder.tscn" id="6_aix8u"]
@@ -17,6 +18,14 @@
 [ext_resource type="PackedScene" uid="uid://cdweh3ibq4duc" path="res://Assets/tscn/pine_tree.tscn" id="15_m8rar"]
 [ext_resource type="Script" path="res://Assets/Code/Level1Toad.gd" id="16_2obqi"]
 [ext_resource type="PackedScene" uid="uid://cumekhgmogtgu" path="res://Assets/tscn/arrow.tscn" id="16_suhds"]
+[ext_resource type="PackedScene" uid="uid://cwh682ii1cl3o" path="res://Assets/tscn/coin_hud.tscn" id="18_213gx"]
+
+[sub_resource type="GDScript" id="GDScript_51lst"]
+script/source = "extends Node3D
+
+func _ready():
+	Global.currentLevel = 0
+"
 
 [sub_resource type="Curve3D" id="Curve3D_e7ekc"]
 _data = {
@@ -26,6 +35,7 @@ _data = {
 point_count = 5
 
 [node name="Level1" type="Node3D"]
+script = SubResource("GDScript_51lst")
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 3.56612, 4.95752, -1.52052)
@@ -39,6 +49,7 @@ script = ExtResource("5_k57hc")
 
 [node name="Camera3D" type="Camera3D" parent="Path3D/PathFollows3D"]
 transform = Transform3D(2.98023e-08, -0.338096, 0.725055, 0, 0.725051, 0.338095, -0.800005, 1.49012e-08, -2.98023e-08, 0.0483227, 0, -0.0322838)
+environment = ExtResource("2_x3lo3")
 
 [node name="Area" type="Node3D" parent="."]
 
@@ -5031,3 +5042,5 @@ script = ExtResource("16_2obqi")
 [node name="Toad" parent="Level1Toad" instance=ExtResource("2_1g7jl")]
 unique_name_in_owner = true
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.5, 0.525, 1.5)
+
+[node name="CoinHUD" parent="." instance=ExtResource("18_213gx")]

@@ -1,13 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://ceryu8fp1m4k6"]
+[gd_scene load_steps=21 format=3 uid="uid://ceryu8fp1m4k6"]
 
 [ext_resource type="Script" path="res://Assets/Code/LevelSelectionOrbs.gd" id="1_3yk61"]
 [ext_resource type="PackedScene" uid="uid://bhrgfiej020bq" path="res://Assets/tscn/level_1_selection.tscn" id="1_hsgg8"]
 [ext_resource type="PackedScene" uid="uid://c5gcd102qlsa0" path="res://Assets/tscn/level_2_selection.tscn" id="2_ygyvr"]
+[ext_resource type="Environment" uid="uid://bd8n1voq3ksmr" path="res://default_env.tres" id="4_25lsd"]
 [ext_resource type="Script" path="res://Assets/tscn/Camera3D.gd" id="4_m7n4n"]
 [ext_resource type="PackedScene" uid="uid://dyh1ytviifjnv" path="res://Assets/tscn/level_3_selection.tscn" id="5_3wdst"]
 [ext_resource type="PackedScene" uid="uid://bs6v4imr3xfoa" path="res://Assets/tscn/level_4_selection.tscn" id="6_45kyb"]
 [ext_resource type="PackedScene" uid="uid://b77xs0p82towm" path="res://Assets/tscn/level_5_selection.tscn" id="7_pjsoa"]
+[ext_resource type="FontFile" uid="uid://bckpa0st2ndht" path="res://Assets/Fonts/RifficFree-Bold.ttf" id="7_qmrpa"]
 [ext_resource type="PackedScene" uid="uid://cug7tfrutar5p" path="res://Assets/tscn/level_6_selection.tscn" id="8_5u50t"]
+
+[sub_resource type="GDScript" id="GDScript_fvfvo"]
+script/source = "extends Node3D
+
+func _ready():
+	print(\"ready\")
+	Global.currentLevel = null
+"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1bbcd"]
 
@@ -28,7 +38,50 @@ refraction_texture_channel = 1
 detail_enabled = true
 detail_blend_mode = 2
 
+[sub_resource type="GDScript" id="GDScript_rqc8l"]
+script/source = "extends Label3D
+
+func _physics_process(delta):
+	text = \"\\n\\n\\n\\nCoins Collected\\n\" + str(Global.coins[0])
+"
+
+[sub_resource type="GDScript" id="GDScript_tvpiv"]
+script/source = "extends Label3D
+
+func _physics_process(delta):
+	text = \"\\n\\n\\n\\nCoins Collected\\n\"  + str(Global.coins[1])
+"
+
+[sub_resource type="GDScript" id="GDScript_4jx1l"]
+script/source = "extends Label3D
+
+func _physics_process(delta):
+	text = \"\\n\\n\\n\\nCoins Collected\\n\"  + str(Global.coins[2])
+"
+
+[sub_resource type="GDScript" id="GDScript_irimq"]
+script/source = "extends Label3D
+
+func _physics_process(delta):
+	text = \"\\n\\n\\n\\nCoins Collected\\n\"  + str(Global.coins[3])
+"
+
+[sub_resource type="GDScript" id="GDScript_vuvy4"]
+script/source = "extends Label3D
+
+func _physics_process(delta):
+	text = \"\\n\\n\\n\\nCoins Collected\\n\"  + str(Global.coins[4])
+"
+
+[sub_resource type="GDScript" id="GDScript_oyc41"]
+script/source = "extends Label3D
+
+func _physics_process(delta):
+	text = \"\\n\\n\\n\\nCoins Collected\\n\"  + str(Global.coins[5])
+"
+
 [node name="LevelSelect" type="Node3D"]
+script = SubResource("GDScript_fvfvo")
 
 [node name="Level1" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0815376, 0)
@@ -61,7 +114,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_aqhu6")
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, -0.0980423, 0.00770402)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1.01399e-08, 0.526273, -0.850316, -6.27575e-09, 0.850316, 0.526273, 1, 0, 1.19249e-08, -0.87978, 0.621227, 0.0126218)
+transform = Transform3D(1.01399e-08, 0.526273, -0.850316, -6.27575e-09, 0.850316, 0.526273, 1, 1.55431e-14, 1.19249e-08, -0.87978, 0.621227, 0.0126218)
+environment = ExtResource("4_25lsd")
 script = ExtResource("4_m7n4n")
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
@@ -101,32 +155,92 @@ transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.264932, 0, 0.0
 
 [node name="Label1Label" type="Label3D" parent="Labels"]
 transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.452236, -0.26485, 0.0220201)
+pixel_size = 0.001
 text = "Level 1
 "
+font = ExtResource("7_qmrpa")
+font_size = 108
 
 [node name="Level2Label" type="Label3D" parent="Labels"]
 transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.452236, -0.26485, 2.01869)
+pixel_size = 0.001
 text = "Level 2"
+font = ExtResource("7_qmrpa")
+font_size = 108
 
 [node name="Level3Label" type="Label3D" parent="Labels"]
 transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.452236, -0.26485, 4.01869)
+pixel_size = 0.001
 text = "Level 3
 "
+font = ExtResource("7_qmrpa")
+font_size = 108
 
 [node name="Level4Label" type="Label3D" parent="Labels"]
 transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.452236, -0.26485, 6.01869)
+pixel_size = 0.001
 text = "Level 4
 "
+font = ExtResource("7_qmrpa")
+font_size = 108
 
 [node name="Level5Label" type="Label3D" parent="Labels"]
 transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.452236, -0.26485, 8.01869)
+pixel_size = 0.001
 text = "Level 5
 "
+font = ExtResource("7_qmrpa")
+font_size = 108
 
 [node name="Level6Label" type="Label3D" parent="Labels"]
 transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.452236, -0.26485, 10.0187)
+pixel_size = 0.001
 text = "Level 6
 "
+font = ExtResource("7_qmrpa")
+font_size = 108
+
+[node name="Label1Label2" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.376603, 0.0174159, -0.652358)
+pixel_size = 0.001
+font = ExtResource("7_qmrpa")
+font_size = 72
+script = SubResource("GDScript_rqc8l")
+
+[node name="Label1Label3" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.376603, 0.0174159, 1.34764)
+pixel_size = 0.001
+font = ExtResource("7_qmrpa")
+font_size = 72
+script = SubResource("GDScript_tvpiv")
+
+[node name="Label1Label4" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.376603, 0.0174159, 3.34764)
+pixel_size = 0.001
+font = ExtResource("7_qmrpa")
+font_size = 72
+script = SubResource("GDScript_4jx1l")
+
+[node name="Label1Label5" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.376603, 0.0174159, 5.34764)
+pixel_size = 0.001
+font = ExtResource("7_qmrpa")
+font_size = 72
+script = SubResource("GDScript_irimq")
+
+[node name="Label1Label6" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.376603, 0.0174159, 7.34764)
+pixel_size = 0.001
+font = ExtResource("7_qmrpa")
+font_size = 72
+script = SubResource("GDScript_vuvy4")
+
+[node name="Label1Label7" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.376603, 0.0174159, 9.34764)
+pixel_size = 0.001
+font = ExtResource("7_qmrpa")
+font_size = 72
+script = SubResource("GDScript_oyc41")
 
 [node name="Level5" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0815376, 7.99667)

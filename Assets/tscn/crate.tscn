@@ -14,28 +14,25 @@ func getSide():
 		for items in $\"1Z\".get_overlapping_bodies():
 			if (items.name == \"Toad\"):
 				if ($\"-1Z/1Z\".is_colliding() && (!$\"-1Z/1Z\".get_collider().name.contains(\"Base\") || ($\"-1Z/1Z\".get_collider().name.contains(\"Base\") && $\"-1Z/1Z\".get_collider().get_parent().isPressed))):
-					print($\"-1Z/1Z\".get_collider())
+
 					return null
 				return \"1Z\"
 	if ($\"-1X\".has_overlapping_bodies()):
 		for items in $\"-1X\".get_overlapping_bodies():
 			if (items.name == \"Toad\"):
 				if ($\"1X/-1X\".is_colliding() && (!$\"1X/-1X\".get_collider().name.contains(\"Base\") || ($\"1X/-1X\".get_collider().name.contains(\"Base\") && $\"1X/-1X\".get_collider().get_parent().isPressed))):
-					print($\"1X/-1X\".get_collider())
 					return null
 				return \"-1X\"
 	if ($\"1X\".has_overlapping_bodies()):
 		for items in $\"1X\".get_overlapping_bodies():
 			if (items.name == \"Toad\"):
 				if ($\"-1X/1X\".is_colliding() && (!$\"-1X/1X\".get_collider().name.contains(\"Base\") || ($\"-1X/1X\".get_collider().name.contains(\"Base\") && $\"-1X/1X\".get_collider().get_parent().isPressed))):
-					print($\"-1X/1X\".get_collider())
 					return null
 				return \"1X\"
 	if ($\"-1Z\".has_overlapping_bodies()):
 		for items in $\"-1Z\".get_overlapping_bodies():
 			if (items.name == \"Toad\"):
 				if ($\"1Z/-1Z\".is_colliding() && (!$\"1Z/-1Z\".get_collider().name.contains(\"Base\") || ($\"1Z/-1Z\".get_collider().name.contains(\"Base\") && $\"1Z/-1Z\".get_collider().get_parent().isPressed))):
-					print($\"1Z/-1Z\".get_collider())
 					return null
 					
 				return \"-1Z\"

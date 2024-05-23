@@ -325,6 +325,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00051, 0, 0)
 [node name="3" parent="Area/Ground/Top/Section2/Row2" instance=ExtResource("3_w1lpw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0273851, 0, 0)
 
+[node name="8" parent="Area/Ground/Top/Section2/Row2" instance=ExtResource("3_w1lpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000509977, 0, 6.69666)
+
 [node name="Row3" type="Node3D" parent="Area/Ground/Top/Section2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.82535)
 

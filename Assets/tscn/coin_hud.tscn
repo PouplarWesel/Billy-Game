@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwh682ii1cl3o"]
+
+[ext_resource type="PackedScene" uid="uid://ci25asvgxh4o4" path="res://Assets/tscn/coin.tscn" id="1_b1vhg"]
+[ext_resource type="FontFile" uid="uid://bckpa0st2ndht" path="res://Assets/Fonts/RifficFree-Bold.ttf" id="1_eyb6j"]
+
+[sub_resource type="Theme" id="Theme_j8te5"]
+default_font = ExtResource("1_eyb6j")
+default_font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfxgc"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_wejhj"]
+script/source = "extends Label
+
+func _physics_process(delta):
+	if (Global.currentLevel != null):
+		text = \"\\n\\n\\n\\n\\n\" + str(Global.currentCoins[Global.currentLevel])
+"
+
+[sub_resource type="World3D" id="World3D_bxulo"]
+
+[node name="CoinHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 12.0
+offset_right = 12.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_j8te5")
+text = "
+
+
+
+COINS
+"
+label_settings = SubResource("LabelSettings_bfxgc")
+horizontal_alignment = 1
+script = SubResource("GDScript_wejhj")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/SubViewportContainer"]
+world_3d = SubResource("World3D_bxulo")
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(100, 100)
+render_target_update_mode = 4
+
+[node name="Coin" parent="MarginContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_b1vhg")]
+
+[node name="Camera3D" type="Camera3D" parent="MarginContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00926578, 0.70515, 0.516469)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MarginContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.767725, 0.64078, 0, -0.64078, -0.767725, 0, 0, 0, 1, 0, 1.47802, 0)
