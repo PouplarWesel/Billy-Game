@@ -82,6 +82,7 @@ metadata/_editor_floor_ = Vector3(0, 16, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
 transform = Transform3D(0.378877, 0.826469, 0.416414, -0.50223, -0.194315, 0.842619, 0.777314, -0.528385, 0.341456, 0, 17.7914, 0)
+visible = false
 
 [node name="Ladder" parent="Map" instance=ExtResource("3_uwlc7")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 3, -5.58347)

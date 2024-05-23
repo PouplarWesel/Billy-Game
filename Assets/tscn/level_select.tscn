@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ceryu8fp1m4k6"]
+[gd_scene load_steps=12 format=3 uid="uid://ceryu8fp1m4k6"]
 
 [ext_resource type="Script" path="res://Assets/Code/LevelSelectionOrbs.gd" id="1_3yk61"]
 [ext_resource type="PackedScene" uid="uid://bhrgfiej020bq" path="res://Assets/tscn/level_1_selection.tscn" id="1_hsgg8"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Assets/tscn/Camera3D.gd" id="4_m7n4n"]
 [ext_resource type="PackedScene" uid="uid://dyh1ytviifjnv" path="res://Assets/tscn/level_3_selection.tscn" id="5_3wdst"]
 [ext_resource type="PackedScene" uid="uid://bs6v4imr3xfoa" path="res://Assets/tscn/level_4_selection.tscn" id="6_45kyb"]
+[ext_resource type="PackedScene" uid="uid://b77xs0p82towm" path="res://Assets/tscn/level_5_selection.tscn" id="7_pjsoa"]
+[ext_resource type="PackedScene" uid="uid://cug7tfrutar5p" path="res://Assets/tscn/level_6_selection.tscn" id="8_5u50t"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1bbcd"]
 
@@ -115,3 +117,43 @@ text = "Level 3
 transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.452236, -0.26485, 6.01869)
 text = "Level 4
 "
+
+[node name="Level5Label" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.452236, -0.26485, 8.01869)
+text = "Level 5
+"
+
+[node name="Level6Label" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -0.452236, -0.26485, 10.0187)
+text = "Level 6
+"
+
+[node name="Level5" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0815376, 7.99667)
+script = ExtResource("1_3yk61")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level5"]
+shape = SubResource("SphereShape3D_1bbcd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Level5"]
+mesh = SubResource("SphereMesh_71p5v")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_aqhu6")
+
+[node name="Level5Selection" parent="Level5" instance=ExtResource("7_pjsoa")]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.112213, 0, 0)
+
+[node name="Level6" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0815376, 9.99667)
+script = ExtResource("1_3yk61")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level6"]
+shape = SubResource("SphereShape3D_1bbcd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Level6"]
+mesh = SubResource("SphereMesh_71p5v")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_aqhu6")
+
+[node name="Level6Selection" parent="Level6" instance=ExtResource("8_5u50t")]
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0.100385, 0, 0.136376)

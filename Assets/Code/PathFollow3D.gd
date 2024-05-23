@@ -1,7 +1,7 @@
 extends PathFollow3D
 
 var MOUSE_SENSITIVITY_X = 0.015
-var MOUSE_SENSITIVITY_Y = 0.00005
+var MOUSE_SENSITIVITY_Y = 0.0005
 var pan_speed = 0.001
 var zoom_speed = 2
 var target_progress
@@ -13,7 +13,7 @@ var mouse_moving = false
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	target_progress = progress
-	progress -= 35
+	progress -= 40
 
 func _input(event):
 	if event is InputEventMouseMotion:

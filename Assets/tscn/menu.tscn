@@ -47,6 +47,7 @@ script = ExtResource("3_q3wj3")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.3567)
+current = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0

@@ -5,7 +5,6 @@ var sizeY = 512
 
 func _physics_process(delta):
 	rotation += Vector3(delta * .1, delta * .1, delta * .1)
-	print(rotation)
 	scale.x += .005 * delta
 	scale.y += .005 * delta
 	scale.z += .005 * delta

@@ -24,11 +24,11 @@ func _physics_process(delta):
 			count += 1
 			if ($Area3D.has_overlapping_bodies()):
 				for items in $Area3D.get_overlapping_bodies():
-					if (items.name == "Toad"):
+					if (items.name == "Toad" || items.name.contains("Crate")):
 						if (flipped):
-							%Toad.position.x += 1
+							items.position.x += 1
 						else:
-							%Toad.position.z += 1
+							items.position.z += 1
 			
 				
 				
@@ -40,11 +40,12 @@ func _physics_process(delta):
 			count += 1
 			if ($Area3D.has_overlapping_bodies()):
 				for items in $Area3D.get_overlapping_bodies():
-					if (items.name == "Toad"):
+					if (items.name == "Toad" || items.name.contains("Crate")):
 						if (flipped):
-							%Toad.position.x -= 1
+							items.position.x -= 1
 						else:
-							%Toad.position.z -= 1
+							items.position.z -= 1
+						
 			
 		if (count == distance):
 			time = Time.get_unix_time_from_system()

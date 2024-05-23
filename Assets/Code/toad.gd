@@ -63,6 +63,8 @@ func handleInput():
 		handleForwardInput()
 	elif Input.is_action_pressed("Backward"):
 		handleBackwardInput()
+	elif (Input.is_action_just_pressed("Escape")):
+		get_tree().change_scene_to_file("res://Assets/tscn/level_select.tscn")
 
 func handleLeftInput():
 	if cameraPath.progress >= one && cameraPath.progress <= two:
@@ -211,7 +213,6 @@ func move(isForward):
 func climb():
 	if raycastFront.is_colliding():
 		var collider = raycastFront.get_collider()
-		print(collider)
 		if collider.name.contains("Ladder"):
 			position.y += ladderHeight
 			move(true)
@@ -231,8 +232,6 @@ func checkCollusion():
 	
 func crate(collider):
 	var side = collider.getSide()
-	
-	print(side)
 	
 	if(side == null):
 		return

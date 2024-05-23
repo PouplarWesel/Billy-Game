@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5gcd102qlsa0"]
+[gd_scene load_steps=18 format=3 uid="uid://c5gcd102qlsa0"]
 
 [ext_resource type="PackedScene" uid="uid://cstr5djd3s3p6" path="res://Assets/tscn/button.tscn" id="1_vjjtb"]
 [ext_resource type="PackedScene" uid="uid://davv581o6smow" path="res://Assets/tscn/snow.tscn" id="2_xjdat"]
@@ -14,9 +14,23 @@
 [ext_resource type="MeshLibrary" uid="uid://d0jof6kwf751v" path="res://Assets/Mesh Library/new_new_tiles.tres" id="12_0mca0"]
 [ext_resource type="PackedScene" uid="uid://cjxp6cdalie3k" path="res://Assets/tscn/invisable_wall.tscn" id="13_57ye2"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_814f4"]
-radius = 0.025
-height = 0.05
+[sub_resource type="Curve" id="Curve_eal13"]
+_data = [Vector2(0, 0.582417), 0.0, 0.0, 0, 0, Vector2(0.306818, 0.32967), 0.0, 0.0, 0, 0, Vector2(0.857955, 0.010989), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_obxyk"]
+curve = SubResource("Curve_eal13")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3drpu"]
+emission_shape_scale = Vector3(10, 1, 10)
+emission_shape = 1
+emission_sphere_radius = 1.0
+inherit_velocity_ratio = 5.0
+scale_curve = SubResource("CurveTexture_obxyk")
+
+[sub_resource type="SphereMesh" id="SphereMesh_gcgpj"]
+radius = 0.01
+height = 0.02
 
 [node name="Node3D" type="Node3D"]
 
@@ -40,16 +54,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.36541, 5.64291, -4.5689)
 size = Vector3(4.93751, 2, 4.89214)
 
 [node name="Snow" parent="Level/Particles" instance=ExtResource("2_xjdat")]
-transform = Transform3D(0.095, 0, 0, 0, 0.095, 0, 0, 0, 0.095, -0.923491, 9.5598, -0.52873)
+transform = Transform3D(-0.675, 0, 0, 0, -0.675, 0, 0, 0, -0.675, -0.923491, 13.4128, -0.52873)
 amount = 100
-lifetime = 1.0
-speed_scale = 0.35
-randomness = 0.2
-draw_pass_1 = SubResource("SphereMesh_814f4")
-
-[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="Level/Particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2685, -0.185396, 8.54291)
-size = Vector3(64.7847, 2, 54.0571)
+lifetime = 0.5
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_3drpu")
+draw_pass_1 = SubResource("SphereMesh_gcgpj")
 
 [node name="Coin" type="Node3D" parent="Level"]
 
@@ -177,6 +187,7 @@ metadata/_editor_floor_ = Vector3(0, 16, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level"]
 transform = Transform3D(0.922646, 0.2305, 0.309183, 0, -0.801724, 0.597695, 0.385648, -0.551461, -0.739707, 9.78715, 13.6718, 0)
+visible = false
 
 [node name="InvisableWall" type="Node3D" parent="Level"]
 

@@ -33,7 +33,6 @@ func _process(delta):
 
 
 func _on_area_3d_body_entered(body):
-	print(body)
 	if (body.name == "Toad" && !isPressed):
 		$Button.position.y-= .05
 		var newmaterial = StandardMaterial3D.new()
