@@ -21,16 +21,16 @@ func _process(delta):
 	pass
 
 func _on_area_3d_body_entered(body):
-	if (body.name == \"Toad\" && !isPressed):
-		$Button.position.y-= .05
-		var newmaterial = StandardMaterial3D.new()
+	if (body.name == \"Toad\" && !isPressed): # if the body is the player and the button is not pressed
+		$Button.position.y-= .05 # move the button down
+		var newmaterial = StandardMaterial3D.new() # create a new material
 		var r = 255
 		var g = 127
 		var b = 127
 		var a = 1
 		newmaterial.set_albedo(Color8(r, g, b, a))
-		$Button/button.set_surface_override_material(0, newmaterial)
-		body.position.y-=.05
+		$Button/button.set_surface_override_material(0, newmaterial) # set the material to the button
+		body.position.y-=.05 # move the player down
 		isPressed = true
 		
 

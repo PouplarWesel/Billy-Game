@@ -21,9 +21,9 @@ func _process(delta):
 	pass
 
 func _on_area_3d_body_entered(body):
-	if ((body.name == \"Toad\" || body.name == \"Crate\") && !isPressed):
+	if ((body.name == \"Toad\" || body.name == \"Crate\") && !isPressed): # if the body is the player and the button is not pressed
 		$Button.position.y-= .05
-		var newmaterial = StandardMaterial3D.new()
+		var newmaterial = StandardMaterial3D.new() # create a new material
 		newmaterial.set_albedo(Color8(173, 216, 230, 255))
 		$Button/button.set_surface_override_material(0, newmaterial)
 		body.position.y-=.05
@@ -32,12 +32,12 @@ func _on_area_3d_body_entered(body):
 		
 
 
-func _on_area_3d_body_exited(body):
-	isPressed = false
+func _on_area_3d_body_exited(body): # if the player leaves the button
+	isPressed = false # set isPressed to false
 	$Button.position = POST
 	var newmaterial = StandardMaterial3D.new()
 	newmaterial.set_albedo(Color8(50, 255, 255, 255))
-	$Button/button.set_surface_override_material(0, newmaterial)
+	$Button/button.set_surface_override_material(0, newmaterial) # set the material back to the original
 		
 "
 

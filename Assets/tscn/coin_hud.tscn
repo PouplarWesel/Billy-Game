@@ -14,9 +14,9 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="GDScript" id="GDScript_wejhj"]
 script/source = "extends Label
 
-func _physics_process(delta):
-	if (Global.currentLevel != null):
-		text = \"\\n\\n\\n\\n\\n\" + str(Global.currentCoins[Global.currentLevel])
+func _physics_process(delta): # Update the coin count
+	if (Global.currentLevel != null): # Check if the level is not null
+		text = \"\\n\\n\\n\\n\\n\" + str(Global.currentCoins[Global.currentLevel]) # Set the text to the current coin count
 "
 
 [sub_resource type="World3D" id="World3D_bxulo"]

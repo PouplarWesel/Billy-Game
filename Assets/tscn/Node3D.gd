@@ -8,13 +8,13 @@ func _ready():
 	
 
 
-func _physics_process(delta):
+func _physics_process(delta): 
 	rotate_y(1 * delta)
 	rotate_z(1 * delta)
 	
 	count += 1
 	
-	if (count < (1/delta) * 4):
+	if (count < (1/delta) * 4): 
 		if (count % 2 == 0):
 			position.y-= 0.0025
 	else:

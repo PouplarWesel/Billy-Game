@@ -9,30 +9,30 @@ script/source = "extends RigidBody3D
 
 
 
-func getSide():
-	if ($\"1Z\".has_overlapping_bodies()):
+func getSide(): # Will return the side of the crate that is colliding with the player
+	if ($\"1Z\".has_overlapping_bodies()): # Check if the player is in the area of the crate that makes the crate move in the Z axis positive
 		for items in $\"1Z\".get_overlapping_bodies():
 			if (items.name == \"Toad\"):
-				if ($\"-1Z/1Z\".is_colliding() && (!$\"-1Z/1Z\".get_collider().name.contains(\"Base\") || ($\"-1Z/1Z\".get_collider().name.contains(\"Base\") && $\"-1Z/1Z\".get_collider().get_parent().isPressed))):
+				if ($\"-1Z/1Z\".is_colliding() && (!$\"-1Z/1Z\".get_collider().name.contains(\"Base\") || ($\"-1Z/1Z\".get_collider().name.contains(\"Base\") && $\"-1Z/1Z\".get_collider().get_parent().isPressed))): # Check if the crates movement is legal
 
 					return null
 				return \"1Z\"
-	if ($\"-1X\".has_overlapping_bodies()):
+	if ($\"-1X\".has_overlapping_bodies()): # Check if the player is in the area of the crate that makes the crate move in the X axis negative
 		for items in $\"-1X\".get_overlapping_bodies():
 			if (items.name == \"Toad\"):
-				if ($\"1X/-1X\".is_colliding() && (!$\"1X/-1X\".get_collider().name.contains(\"Base\") || ($\"1X/-1X\".get_collider().name.contains(\"Base\") && $\"1X/-1X\".get_collider().get_parent().isPressed))):
+				if ($\"1X/-1X\".is_colliding() && (!$\"1X/-1X\".get_collider().name.contains(\"Base\") || ($\"1X/-1X\".get_collider().name.contains(\"Base\") && $\"1X/-1X\".get_collider().get_parent().isPressed))): # Check if the crates movement is legal
 					return null
 				return \"-1X\"
-	if ($\"1X\".has_overlapping_bodies()):
+	if ($\"1X\".has_overlapping_bodies()): # Check if the player is in the area of the crate that makes the crate move in the X axis positive
 		for items in $\"1X\".get_overlapping_bodies():
 			if (items.name == \"Toad\"):
-				if ($\"-1X/1X\".is_colliding() && (!$\"-1X/1X\".get_collider().name.contains(\"Base\") || ($\"-1X/1X\".get_collider().name.contains(\"Base\") && $\"-1X/1X\".get_collider().get_parent().isPressed))):
+				if ($\"-1X/1X\".is_colliding() && (!$\"-1X/1X\".get_collider().name.contains(\"Base\") || ($\"-1X/1X\".get_collider().name.contains(\"Base\") && $\"-1X/1X\".get_collider().get_parent().isPressed))): # Check if the crates movement is legal 
 					return null
 				return \"1X\"
-	if ($\"-1Z\".has_overlapping_bodies()):
+	if ($\"-1Z\".has_overlapping_bodies()): # Check if the player is in the area of the crate that makes the crate move in the Z axis negative
 		for items in $\"-1Z\".get_overlapping_bodies():
 			if (items.name == \"Toad\"):
-				if ($\"1Z/-1Z\".is_colliding() && (!$\"1Z/-1Z\".get_collider().name.contains(\"Base\") || ($\"1Z/-1Z\".get_collider().name.contains(\"Base\") && $\"1Z/-1Z\".get_collider().get_parent().isPressed))):
+				if ($\"1Z/-1Z\".is_colliding() && (!$\"1Z/-1Z\".get_collider().name.contains(\"Base\") || ($\"1Z/-1Z\".get_collider().name.contains(\"Base\") && $\"1Z/-1Z\".get_collider().get_parent().isPressed))): # Check if the crates movement is legal
 					return null
 					
 				return \"-1Z\"
