@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dw6suni2hdoim"]
+[gd_scene load_steps=31 format=3 uid="uid://dw6suni2hdoim"]
 
 [ext_resource type="MeshLibrary" uid="uid://bnso50hsfn6f4" path="res://Assets/Mesh Library/even_new_tiles.tres" id="1_ng52k"]
 [ext_resource type="PackedScene" uid="uid://db2e4j6gysje0" path="res://Assets/tscn/toad.tscn" id="2_uajk4"]
@@ -18,12 +18,14 @@
 [ext_resource type="PackedScene" uid="uid://cydkps7na0yxs" path="res://Assets/tscn/tall_flowers_new.tscn" id="12_0i4kj"]
 [ext_resource type="PackedScene" uid="uid://b106yxijfefds" path="res://Assets/tscn/tree_new.tscn" id="13_xqxi0"]
 [ext_resource type="PackedScene" uid="uid://cwh682ii1cl3o" path="res://Assets/tscn/coin_hud.tscn" id="17_ch1ol"]
+[ext_resource type="PackedScene" uid="uid://ipsix4gw1vm8" path="res://Assets/tscn/transition.tscn" id="19_egu85"]
 
 [sub_resource type="GDScript" id="GDScript_f6gae"]
 script/source = "extends Node3D
 
 func _ready():
 	Global.currentLevel = 5
+	$Transition.fadeOut()
 "
 
 [sub_resource type="GDScript" id="GDScript_ej30i"]
@@ -43,8 +45,11 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="GDScript" id="GDScript_7y5ly"]
+[sub_resource type="GDScript" id="GDScript_0hrx2"]
 script/source = "extends Camera3D
+
+func _ready():
+	%PathFollows3D.progress = 35
 "
 
 [sub_resource type="GDScript" id="GDScript_jo338"]
@@ -136,7 +141,7 @@ script = ExtResource("3_22e55")
 [node name="Camera3D" type="Camera3D" parent="Path3D/PathFollows3D"]
 transform = Transform3D(0, -0.429056, 0.920127, 0, 0.920116, 0.429051, -1.01524, 1.49012e-08, 8.9407e-08, 0.0483227, 0, -0.0322838)
 environment = ExtResource("3_lq67b")
-script = SubResource("GDScript_7y5ly")
+script = SubResource("GDScript_0hrx2")
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -281,11 +286,9 @@ skeleton = NodePath("../../..")
 
 [node name="TreeNew" parent="Map/Tree" instance=ExtResource("13_xqxi0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 3.19129, 1.5)
-skeleton = NodePath("../../..")
 
 [node name="TreeNew2" parent="Map/Tree" instance=ExtResource("13_xqxi0")]
 transform = Transform3D(0.758214, 0, 0.652006, 0, 1, 0, -0.652006, 0, 0.758214, -9.5, 3.19129, -7.5)
-skeleton = NodePath("../../..")
 
 [node name="Coin" type="Node3D" parent="Map"]
 
@@ -317,5 +320,8 @@ unique_name_in_owner = true
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.5, 3.1745, -0.5)
 
 [node name="CoinHUD" parent="." instance=ExtResource("17_ch1ol")]
+
+[node name="Transition" parent="." instance=ExtResource("19_egu85")]
+unique_name_in_owner = true
 
 [connection signal="body_entered" from="Map/Void" to="Map/Void" method="_on_body_entered"]

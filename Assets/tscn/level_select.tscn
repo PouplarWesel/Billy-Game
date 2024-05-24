@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ceryu8fp1m4k6"]
+[gd_scene load_steps=22 format=3 uid="uid://ceryu8fp1m4k6"]
 
 [ext_resource type="Script" path="res://Assets/Code/LevelSelectionOrbs.gd" id="1_3yk61"]
 [ext_resource type="PackedScene" uid="uid://bhrgfiej020bq" path="res://Assets/tscn/level_1_selection.tscn" id="1_hsgg8"]
@@ -10,11 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://b77xs0p82towm" path="res://Assets/tscn/level_5_selection.tscn" id="7_pjsoa"]
 [ext_resource type="FontFile" uid="uid://bckpa0st2ndht" path="res://Assets/Fonts/RifficFree-Bold.ttf" id="7_qmrpa"]
 [ext_resource type="PackedScene" uid="uid://cug7tfrutar5p" path="res://Assets/tscn/level_6_selection.tscn" id="8_5u50t"]
+[ext_resource type="PackedScene" uid="uid://ipsix4gw1vm8" path="res://Assets/tscn/transition.tscn" id="11_wlhqe"]
 
 [sub_resource type="GDScript" id="GDScript_fvfvo"]
 script/source = "extends Node3D
 
 func _ready():
+	$Transition.fadeOut()
 	print(\"ready\")
 	Global.currentLevel = null
 "
@@ -116,6 +118,7 @@ transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, -0.0980423, 0.007
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1.01399e-08, 0.526273, -0.850316, -6.27575e-09, 0.850316, 0.526273, 1, 1.55431e-14, 1.19249e-08, -0.87978, 0.621227, 0.0126218)
 environment = ExtResource("4_25lsd")
+current = true
 script = ExtResource("4_m7n4n")
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
@@ -271,3 +274,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_aqhu6")
 
 [node name="Level6Selection" parent="Level6" instance=ExtResource("8_5u50t")]
 transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0.100385, 0, 0.136376)
+
+[node name="Transition" parent="." instance=ExtResource("11_wlhqe")]

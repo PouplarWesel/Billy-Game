@@ -13,8 +13,7 @@ func _physics_process(delta):
 				coins[pastLevel] = currentCoins[pastLevel]
 			currentCoins[pastLevel] = 0
 		pastLevel = currentLevel
-		print(currentCoins)
-		print(coins)
+
 	
 			
 		

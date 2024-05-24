@@ -6,6 +6,13 @@ var isTwo = false
 var leftPos = Vector3(-0.87978, 0.621227, 0.012622)
 var rightPos = Vector3(-0.87978, 0.621227, 10.012622)
 
+var level1 = preload("res://level_1.tscn")
+var level2 = preload("res://level_2.tscn")
+var level3 = preload("res://level_3.tscn")
+var level4 = preload("res://level_4.tscn")
+var level5 = preload("res://level_5.tscn")
+var level6 = preload("res://level_6.tscn")
+
 var count = 0
 var countBool = false
 func _physics_process(delta):
@@ -24,14 +31,26 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("Select"):
 		if ($RayCast3D.is_colliding()):
 			if ($RayCast3D.get_collider().name == "Level1"):
-				get_tree().change_scene_to_file("res://level_1.tscn")
+				$"../Transition".fadeIn(level1)
+				await get_tree().create_timer(1.2).timeout 
+				get_tree().change_scene_to_packed(level1)
 			elif ($RayCast3D.get_collider().name == "Level2"):
-				get_tree().change_scene_to_file("res://level_2.tscn")
+				$"../Transition".fadeIn(level2)
+				await get_tree().create_timer(1.2).timeout 
+				get_tree().change_scene_to_packed(level2)
 			elif ($RayCast3D.get_collider().name == "Level3"):
-				get_tree().change_scene_to_file("res://level_3.tscn")
+				$"../Transition".fadeIn(level3)
+				await get_tree().create_timer(1.2).timeout 
+				get_tree().change_scene_to_packed(level3)
 			elif ($RayCast3D.get_collider().name == "Level4"):
-				get_tree().change_scene_to_file("res://level_4.tscn")
+				$"../Transition".fadeIn(level4)
+				await get_tree().create_timer(1.2).timeout 
+				get_tree().change_scene_to_packed(level4)
 			elif ($RayCast3D.get_collider().name == "Level5"):
-				get_tree().change_scene_to_file("res://level_5.tscn")
+				$"../Transition".fadeIn(level5)
+				await get_tree().create_timer(1.2).timeout 
+				get_tree().change_scene_to_packed(level5)
 			elif ($RayCast3D.get_collider().name == "Level6"):
-				get_tree().change_scene_to_file("res://level_6.tscn")
+				$"../Transition".fadeIn(level6)
+				await get_tree().create_timer(1.2).timeout 
+				get_tree().change_scene_to_packed(level6)

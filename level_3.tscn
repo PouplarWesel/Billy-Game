@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://p0f2d6ujc616"]
+[gd_scene load_steps=23 format=3 uid="uid://p0f2d6ujc616"]
 
 [ext_resource type="PackedScene" uid="uid://djqeya0nukajm" path="res://Assets/tscn/block_falling.tscn" id="1_cokrf"]
 [ext_resource type="Environment" uid="uid://bd8n1voq3ksmr" path="res://default_env.tres" id="2_8dkmy"]
@@ -19,12 +19,14 @@
 [ext_resource type="PackedScene" uid="uid://b106yxijfefds" path="res://Assets/tscn/tree_new.tscn" id="17_7y7mb"]
 [ext_resource type="PackedScene" uid="uid://bt8mtfd2pg2hh" path="res://Assets/tscn/mushroom.tscn" id="18_eh35w"]
 [ext_resource type="PackedScene" uid="uid://cwh682ii1cl3o" path="res://Assets/tscn/coin_hud.tscn" id="18_t27k2"]
+[ext_resource type="PackedScene" uid="uid://ipsix4gw1vm8" path="res://Assets/tscn/transition.tscn" id="20_oeooy"]
 
 [sub_resource type="GDScript" id="GDScript_vfinn"]
 script/source = "extends Node3D
 
 func _ready():
 	Global.currentLevel = 2
+	$Transition.fadeOut()
 "
 
 [sub_resource type="Curve3D" id="Curve3D_r8cey"]
@@ -198,3 +200,6 @@ transform = Transform3D(0.0895375, 0, -0.995983, 0, 1, 0, 0.995983, 0, 0.0895375
 skeleton = NodePath("../../..")
 
 [node name="CoinHUD" parent="." instance=ExtResource("18_t27k2")]
+
+[node name="Transition" parent="." instance=ExtResource("20_oeooy")]
+unique_name_in_owner = true

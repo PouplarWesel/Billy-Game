@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://0s4eauujveyp"]
+[gd_scene load_steps=31 format=3 uid="uid://0s4eauujveyp"]
 
 [ext_resource type="MeshLibrary" uid="uid://c62f1vf7bbi2s" path="res://Assets/Mesh Library/new_new__new_tiles.tres" id="1_v1sfa"]
 [ext_resource type="PackedScene" uid="uid://ci25asvgxh4o4" path="res://Assets/tscn/coin.tscn" id="2_opjvy"]
@@ -21,12 +21,14 @@
 [ext_resource type="PackedScene" uid="uid://bqvqun3wf0cd6" path="res://Assets/tscn/flowers_new.tscn" id="18_uvr7s"]
 [ext_resource type="PackedScene" uid="uid://cej2hv134j4db" path="res://Assets/New Models/GLB format/flowers-tall.glb" id="19_8rjvt"]
 [ext_resource type="PackedScene" uid="uid://cwh682ii1cl3o" path="res://Assets/tscn/coin_hud.tscn" id="20_jushy"]
+[ext_resource type="PackedScene" uid="uid://ipsix4gw1vm8" path="res://Assets/tscn/transition.tscn" id="22_y15ov"]
 
 [sub_resource type="GDScript" id="GDScript_smvam"]
 script/source = "extends Node3D
 
 func _ready():
 	Global.currentLevel = 3
+	$Transition.fadeOut()
 "
 
 [sub_resource type="Curve3D" id="Curve3D_xtwon"]
@@ -334,5 +336,8 @@ unique_name_in_owner = true
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2, 3.23, 2)
 
 [node name="CoinHUD" parent="." instance=ExtResource("20_jushy")]
+
+[node name="Transition" parent="." instance=ExtResource("22_y15ov")]
+unique_name_in_owner = true
 
 [connection signal="body_entered" from="Map/Area3D" to="Map/Area3D" method="_on_body_entered"]

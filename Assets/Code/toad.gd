@@ -20,6 +20,7 @@ var three
 var four 
 var ladderHeight
 var posStart
+var select = preload("res://Assets/tscn/level_select.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") 
@@ -64,7 +65,9 @@ func handleInput():
 	elif Input.is_action_pressed("Backward"):
 		handleBackwardInput()
 	elif (Input.is_action_just_pressed("Escape")):
-		get_tree().change_scene_to_file("res://Assets/tscn/level_select.tscn")
+		%Transition.fadeIn(select)
+		await get_tree().create_timer(1.2).timeout 
+		get_tree().change_scene_to_packed(select)
 
 func handleLeftInput():
 	if cameraPath.progress >= one && cameraPath.progress <= two:

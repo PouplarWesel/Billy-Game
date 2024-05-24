@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bkrutrjewv602"]
+[gd_scene load_steps=23 format=3 uid="uid://bkrutrjewv602"]
 
 [ext_resource type="PackedScene" uid="uid://dantck3j33yki" path="res://Assets/tscn/block.tscn" id="1_531fg"]
 [ext_resource type="PackedScene" uid="uid://db2e4j6gysje0" path="res://Assets/tscn/toad.tscn" id="2_1g7jl"]
@@ -19,12 +19,14 @@
 [ext_resource type="Script" path="res://Assets/Code/Level1Toad.gd" id="16_2obqi"]
 [ext_resource type="PackedScene" uid="uid://cumekhgmogtgu" path="res://Assets/tscn/arrow.tscn" id="16_suhds"]
 [ext_resource type="PackedScene" uid="uid://cwh682ii1cl3o" path="res://Assets/tscn/coin_hud.tscn" id="18_213gx"]
+[ext_resource type="PackedScene" uid="uid://ipsix4gw1vm8" path="res://Assets/tscn/transition.tscn" id="20_leukr"]
 
 [sub_resource type="GDScript" id="GDScript_51lst"]
 script/source = "extends Node3D
 
 func _ready():
 	Global.currentLevel = 0
+	$Transition.fadeOut()
 "
 
 [sub_resource type="Curve3D" id="Curve3D_e7ekc"]
@@ -5044,3 +5046,6 @@ unique_name_in_owner = true
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.5, 0.525, 1.5)
 
 [node name="CoinHUD" parent="." instance=ExtResource("18_213gx")]
+
+[node name="Transition" parent="." instance=ExtResource("20_leukr")]
+unique_name_in_owner = true
