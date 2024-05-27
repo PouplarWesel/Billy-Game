@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://Assets/Code/Level1Toad.gd" id="8_18ovu"]
 [ext_resource type="PackedScene" uid="uid://db2e4j6gysje0" path="res://Assets/tscn/toad.tscn" id="9_ey4hh"]
 [ext_resource type="PackedScene" uid="uid://cdlqyv2bvdhec" path="res://Assets/tscn/cake.tscn" id="10_4hs16"]
-[ext_resource type="Script" path="res://MovingBlock1.gd" id="11_f6bry"]
 [ext_resource type="PackedScene" uid="uid://6t2ywm1sqt4q" path="res://Assets/tscn/ladder.tscn" id="11_g7tyr"]
 [ext_resource type="Script" path="res://Assets/Code/Level4/MovingBlock2.gd" id="13_dykij"]
 [ext_resource type="PackedScene" uid="uid://ce20cu28o2rp3" path="res://Assets/tscn/rock.tscn" id="14_kf4q7"]
@@ -55,6 +54,17 @@ func _on_body_entered(body):
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5miss"]
 size = Vector3(33.7778, 1, 30.0025)
+
+[sub_resource type="GDScript" id="GDScript_8i88c"]
+script/source = "extends Node3D
+
+var isPressed = false
+
+func _physics_process(delta):
+	if %Button.isPressed && !isPressed:
+		propagate_call(\"flipOn\")
+		isPressed = true
+"
 
 [sub_resource type="GDScript" id="GDScript_masu4"]
 script/source = "extends Node3D
@@ -209,15 +219,12 @@ transform = Transform3D(0.66743, 0, 0.744673, 0, 1, 0, -0.744673, 0, 0.66743, 15
 
 [node name="PineTreeNew" parent="Map/Tree" instance=ExtResource("15_obnyb")]
 transform = Transform3D(-0.996409, 0, 0.0846693, 0, 1, 0, -0.0846693, 0, -0.996409, 11.0917, 5.17152, -10.0824)
-skeleton = NodePath("../TreeNew2")
 
 [node name="TreeNew" parent="Map/Tree" instance=ExtResource("16_xdhn6")]
 transform = Transform3D(0.906256, 0, 0.422729, 0, 1, 0, -0.422729, 0, 0.906256, 2.63455, 5.17152, -1.90289)
-skeleton = NodePath("../../Flower/flowers-tall5")
 
 [node name="TreeNew2" parent="Map/Tree" instance=ExtResource("16_xdhn6")]
 transform = Transform3D(0.642881, 0, -0.765966, 0, 1, 0, 0.765966, 0, 0.642881, 11.0917, 5.17152, 3.91761)
-skeleton = NodePath("../../Flower/flowers-tall5")
 
 [node name="Flower" type="Node3D" parent="Map"]
 
@@ -302,7 +309,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 5.47, -12)
 [node name="MovingBlocks" type="Node3D" parent="Map"]
 
 [node name="MovingBlock1" type="Node3D" parent="Map/MovingBlocks"]
-script = ExtResource("11_f6bry")
+script = SubResource("GDScript_8i88c")
 
 [node name="MovingBlock" parent="Map/MovingBlocks/MovingBlock1" instance=ExtResource("4_g34t6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.768, -5)

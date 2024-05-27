@@ -1,11 +1,43 @@
 [gd_scene load_steps=7 format=3 uid="uid://cdlqyv2bvdhec"]
 
-[ext_resource type="Script" path="res://Assets/tscn/Node3D.gd" id="1_bb3xt"]
 [ext_resource type="Script" path="res://Assets/tscn/cake.gd" id="1_d4avo"]
 [ext_resource type="ArrayMesh" uid="uid://do1ndu4l738oc" path="res://Assets/Models/OBJ format/cakeBirthday.obj" id="1_thh0q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qgoru"]
 size = Vector3(1, 1.49609, 1)
+
+[sub_resource type="GDScript" id="GDScript_fqhn7"]
+script/source = "extends Node3D
+
+var count = 0
+var pos
+
+func _ready():
+	pos = position
+	
+
+
+func _physics_process(delta): 
+	rotate_y(1 * delta)
+	rotate_z(1 * delta)
+	
+	count += 1
+	
+	if (count < (1/delta) * 4): 
+		if (count % 2 == 0):
+			position.y-= 0.0025
+	else:
+		if (count % 2 == 0):
+			position.y += 0.0025
+		
+		
+	if (count > (1/delta) * 8):
+		count = 0
+		position = pos
+	
+	
+		
+"
 
 [sub_resource type="SphereMesh" id="SphereMesh_e27as"]
 
@@ -33,7 +65,7 @@ shape = SubResource("BoxShape3D_qgoru")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0815376, 0)
-script = ExtResource("1_bb3xt")
+script = SubResource("GDScript_fqhn7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
 mesh = ExtResource("1_thh0q")

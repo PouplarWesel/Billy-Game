@@ -1,7 +1,37 @@
 [gd_scene load_steps=5 format=3 uid="uid://djqeya0nukajm"]
 
-[ext_resource type="Script" path="res://StaticBody3D.gd" id="1_1dmck"]
 [ext_resource type="ArrayMesh" uid="uid://ogrw75bep0rm" path="res://Assets/Models/OBJ format/blockMoving.obj" id="2_5ry3u"]
+
+[sub_resource type="GDScript" id="GDScript_tiq6k"]
+script/source = "extends StaticBody3D
+
+var pos
+var time =  Time.get_unix_time_from_system()
+var time2 = 0
+var isOverLapping = false
+
+func _ready():
+	pos = position
+	
+func _physics_process(delta):
+	if ($Area3D.has_overlapping_bodies()):
+		for items in $Area3D.get_overlapping_bodies():
+			if (items.name == \"Toad\"):
+				if (!isOverLapping):
+					time = Time.get_unix_time_from_system()
+				isOverLapping = true
+				time2 = Time.get_unix_time_from_system()
+
+	if (isOverLapping):
+		time2 = Time.get_unix_time_from_system()
+		if (time2 - time > .5 && time2 - time < 2):
+			position.y -= 5 * delta
+		if (time2 - time > 5):
+			time = 0
+			time2 = Time.get_unix_time_from_system()
+			position = pos
+			isOverLapping = false
+"
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jj5r6"]
 points = PackedVector3Array(-0.400059, 0, -0.5, -0.468383, 0, -0.468383, -0.400059, 0.25, -0.5, 0.399961, 0, -0.5, -0.5, 0, -0.400059, -0.468383, 0.25, -0.468383, 0.399961, 0.25, -0.5, 0.468285, 0, -0.468383, -0.5, 0.25, -0.400059, -0.5, 0, 0.399956, 0.468285, 0.25, -0.468383, 0.5, 0, -0.400059, -0.5, 0.25, 0.399956, -0.468383, 0, 0.46828, 0.5, 0.25, -0.400059, 0.5, 0, 0.399956, -0.468383, 0.25, 0.46828, -0.400059, 0, 0.499995, 0.5, 0.25, 0.399956, 0.468285, 0, 0.46828, -0.400059, 0.25, 0.499995, 0.399961, 0, 0.499995, 0.468285, 0.25, 0.46828, 0.399961, 0.25, 0.499995)
@@ -9,7 +39,7 @@ points = PackedVector3Array(-0.400059, 0, -0.5, -0.468383, 0, -0.468383, -0.4000
 [sub_resource type="BoxShape3D" id="BoxShape3D_v5acn"]
 
 [node name="BlockFalling" type="StaticBody3D"]
-script = ExtResource("1_1dmck")
+script = SubResource("GDScript_tiq6k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_5ry3u")

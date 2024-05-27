@@ -222,11 +222,9 @@ skeleton = NodePath("../../..")
 
 [node name="TreeNew" parent="Map/Tree" instance=ExtResource("11_hkbpw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 3.19129, 1.5)
-skeleton = NodePath("../../..")
 
 [node name="TreeNew2" parent="Map/Tree" instance=ExtResource("11_hkbpw")]
 transform = Transform3D(0.758214, 0, 0.652006, 0, 1, 0, -0.652006, 0, 0.758214, -9.5, 3.19129, -7.5)
-skeleton = NodePath("../../..")
 
 [node name="Coin" type="Node3D" parent="Map"]
 

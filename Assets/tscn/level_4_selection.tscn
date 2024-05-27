@@ -139,15 +139,12 @@ transform = Transform3D(0.66743, 0, 0.744673, 0, 1, 0, -0.744673, 0, 0.66743, 15
 
 [node name="PineTreeNew" parent="Map/Tree" instance=ExtResource("12_o00xn")]
 transform = Transform3D(-0.996409, 0, 0.0846693, 0, 1, 0, -0.0846693, 0, -0.996409, 11.0917, 5.17152, -10.0824)
-skeleton = NodePath("../TreeNew2")
 
 [node name="TreeNew" parent="Map/Tree" instance=ExtResource("13_r1uty")]
 transform = Transform3D(0.906256, 0, 0.422729, 0, 1, 0, -0.422729, 0, 0.906256, 2.63455, 5.17152, -1.90289)
-skeleton = NodePath("../../Flower/flowers-tall5")
 
 [node name="TreeNew2" parent="Map/Tree" instance=ExtResource("13_r1uty")]
 transform = Transform3D(0.642881, 0, -0.765966, 0, 1, 0, 0.765966, 0, 0.642881, 11.0917, 5.17152, 3.91761)
-skeleton = NodePath("../../Flower/flowers-tall5")
 
 [node name="Flower" type="Node3D" parent="Map"]
 
